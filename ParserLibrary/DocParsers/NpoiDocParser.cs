@@ -1,11 +1,11 @@
 ﻿using System;
 using System.IO;
 using System.Text;
-using Novacode;
+using NPOI.XWPF.UserModel;
 
 namespace ParserLibrary.DocParsers {
-    public class DocXParser : Parser {
-        public DocXParser()
+    public class NpoiDocParser : Parser {
+        public NpoiDocParser()
             : base(ParserType.DocParser) {
         }
 
@@ -21,10 +21,11 @@ namespace ParserLibrary.DocParsers {
 
                 if (new FileInfo(ParsedFile).Length != 0) {
 
-                    DocX document = DocX.Load(ParsedFile);
-
-                    foreach (Paragraph paragraph in document.Paragraphs) {
-                        text.Append(paragraph.Text);
+                    using (FileStream stream = File.OpenRead(fileToParse)) {
+                        XWPFDocument document = new XWPFDocument(stream);
+                        foreach (XWPFParagraph paragraph in document.Paragraphs) {
+                            text.Append(paragraph.ParagraphText);
+                        }
                     }
                 }
 

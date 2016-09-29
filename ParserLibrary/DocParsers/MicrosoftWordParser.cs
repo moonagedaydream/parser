@@ -15,17 +15,26 @@ namespace ParserLibrary.DocParsers {
             CheckFileType();
 
             try {
-                Application word = new Application();
-                object miss = System.Reflection.Missing.Value;
-                object path = fileToParse;
-                object readOnly = true;
-                Document docs = word.Documents.Open(ref path, ref miss, ref readOnly, ref miss, ref miss, ref miss, ref miss, ref miss, ref miss, ref miss, ref miss, ref miss, ref miss, ref miss, ref miss, ref miss);
+
                 StringBuilder text = new StringBuilder();
-                for (int i = 0; i < docs.Paragraphs.Count; i++) {
-                    text.AppendLine(docs.Paragraphs[i + 1].Range.Text);
+
+                if (new FileInfo(ParsedFile).Length != 0) {
+
+                    Application word = new Application();
+                    
+                    object miss = System.Reflection.Missing.Value;
+                    object path = fileToParse;
+                    object readOnly = true;
+                    
+                    Document docs = word.Documents.Open(ref path, ref miss, ref readOnly, ref miss, ref miss, ref miss, ref miss, ref miss, ref miss, ref miss, ref miss, ref miss, ref miss, ref miss, ref miss, ref miss);                    
+                    
+                    for (int i = 0; i < docs.Paragraphs.Count; i++) {
+                        text.AppendLine(docs.Paragraphs[i + 1].Range.Text);
+                    }
+                    
+                    docs.Close();
+                    word.Quit();
                 }
-                docs.Close();
-                word.Quit();
 
                 Text = text.ToString();
                 Size = new FileInfo(fileToParse).Length;

@@ -11,8 +11,9 @@ namespace ParserRun {
     class Program {
         static void Main(string[] args) {
             try {
-                Parser parser = new MicrosoftWordParser();
-                parser.Parse(@"C:\Users\Мария\Downloads\Zdravstvuyte.docx");
+                Parser parser = new NpoiDocParser();
+
+                parser.Parse(@"C:\Users\Мария\Documents\test.docx");
 
                 parser.SaveTextToFile(@"C:\Users\Мария\Documents\test.txt");
 
