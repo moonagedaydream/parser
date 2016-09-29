@@ -61,6 +61,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="NUnit\" />
+    <Folder Include="PdfTest\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="DocTest\Empty0Size.docx">
@@ -68,6 +69,11 @@
     </None>
     <None Include="packages.config" />
     <None Include="ResultDocuments\Test.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="HtmlTest\AppliedMathematicMainPage.html">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
   </ItemGroup>
