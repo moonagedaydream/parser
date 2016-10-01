@@ -143,7 +143,7 @@ namespace ParserTest
       Parser parser = new DocXParser();
       parser.Parse(Constants.pathToWithContentsDoc);
       
-      Assert.AreEqual(Constants.withContentsExpectedResult, parser.Text);
+      Assert.AreEqual(Constants.withContentsExpectedResult1, parser.Text);
     }
 
     /// <summary>
@@ -167,7 +167,7 @@ namespace ParserTest
       Parser parser = new DocXParser();
       parser.Parse(Constants.pathToWithFormulasDoc);
       
-      Assert.AreEqual(Constants.withFormulasExpectedResult, parser.Text);
+      Assert.AreEqual(Constants.withFormulasExpectedResult1, parser.Text);
     }
 
     /// <summary>
@@ -179,7 +179,7 @@ namespace ParserTest
       Parser parser = new DocXParser();
       parser.Parse(Constants.pathToWithNumerationDoc);
       
-      Assert.AreEqual(Constants.withNumerationExpectedResult, parser.Text);
+      Assert.AreEqual(Constants.withNumerationExpectedResult1, parser.Text);
     }
 
     /// <summary>
@@ -212,6 +212,7 @@ namespace ParserTest
     [Test]
     public void HugeDoc()
     {
+      File.Delete(Constants.pathToEmptyDocText);
       Stopwatch stopwatch = new Stopwatch();
       stopwatch.Start();
 
