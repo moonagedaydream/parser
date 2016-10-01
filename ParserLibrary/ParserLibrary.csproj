@@ -190,6 +190,9 @@
     <Compile Include="DocParsers\NpoiDocParser.cs" />
     <Compile Include="DocParsers\MicrosoftWordParser.cs" />
     <Compile Include="DocParsers\DocXParser.cs" />
+    <Compile Include="HtmlParsers\AngleSharpParser.cs" />
+    <Compile Include="HtmlParsers\CsQueryParser.cs" />
+    <Compile Include="HtmlParsers\HtmlAgilityPackParser.cs" />
     <Compile Include="HtmlParsers\HtmlParser.cs" />
     <Compile Include="Parser.cs" />
     <Compile Include="PdfParsers\PdfBoxParser.cs" />
