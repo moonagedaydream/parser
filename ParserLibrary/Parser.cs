@@ -1,6 +1,6 @@
 ﻿using System;
 using System.IO;
-using System.Threading.Tasks;
+using System.Text.RegularExpressions;
 
 namespace ParserLibrary {
     public enum ParsingStatus {
@@ -46,6 +46,13 @@ namespace ParserLibrary {
                     "Ths operation is avaliable only after parsing is successfully finished.");
             }
             File.WriteAllText(filePath, Text);
+        }
+
+        //Erases all extra newlines from Text
+        public void BeautifyText() {
+
+            Text = Regex.Replace(Text, "[\\r\\n]+", System.Environment.NewLine, System.Text.RegularExpressions.RegexOptions.Multiline);
+       
         }
 
         //Checks that the extension of the file is correct

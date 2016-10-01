@@ -1,32 +1,87 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.IO;
+using System.Text;
+using System.Text.RegularExpressions;
 
 namespace ParserLibrary.HtmlParsers {
-    public class HtmlParser : Parser {
-        public HtmlParser()
+    public abstract class HtmlParser : Parser {
+
+        public IList<string> Links;
+
+        protected HtmlParser()
             : base(ParserType.HtmlParser) {
+            Links = new List<string>();
         }
 
-        public override void Parse(string fileToParse) {
+        protected void TryAddLink(string link) {
+            Uri uri;
 
-            throw new NotImplementedException();
+            if (link.StartsWith("http")
+                && Uri.TryCreate(link, UriKind.RelativeOrAbsolute, out uri)) {
 
-            ParsedFile = fileToParse;
+                string uriString = uri.ToString();
 
-            CheckFileType();
+                if (uriString.Contains("://www.")) {
+                    uriString = uriString.Replace("://www.", "://");
+                }
 
-            try {
+                if (!uriString.EndsWith("/")) {
+                    uriString += "/";
+                }
 
-                
-
-                //Text = ;
-                Size = new FileInfo(fileToParse).Length;
-                Status = ParsingStatus.Completed;
-
-            } catch (Exception) {
-                Status = ParsingStatus.Error;
-                throw;
+                if (!Links.Contains(uriString)) {
+                    Links.Add(uriString);
+                }
             }
         }
+
+        protected void GetLinksUsingRegex(string urlMatch = null) {
+
+            string text = File.ReadAllText(ParsedFile);
+
+            Regex cHttpUrlsRegex = new Regex(@"(?<url>((http|https):[/][/]|www.)([a-z]|[A-Z]|[0-9]|[_/.=&?%-]|[~])*)", RegexOptions.IgnoreCase);
+
+            if (String.IsNullOrEmpty(text)) {
+                return;
+            }
+
+            MatchCollection matches = cHttpUrlsRegex.Matches(text);
+
+            var vMatcher = urlMatch == null ? null : new Regex(urlMatch);
+
+            foreach (Match match in matches) {
+
+                string url = match.Groups["url"].Value;
+
+                TryAddLink(url);
+            }
+
+        }
+
+        protected Encoding GetEncoding() {
+            try {
+                using (FileStream fs = File.OpenRead(ParsedFile)) {
+                    Ude.CharsetDetector cdet = new Ude.CharsetDetector();
+                    cdet.Feed(fs);
+                    cdet.DataEnd();
+                    if (cdet.Charset != null) {
+                        return Encoding.GetEncoding(cdet.Charset);
+                    }
+                }
+            } catch (Exception) {
+                return Encoding.Unicode;
+            }
+            return Encoding.Unicode;
+        }
+
+        public void SaveAllLinksToFile(string filePath) {
+            if (Status != ParsingStatus.Completed) {
+                throw new InvalidOperationException(
+                    "Ths operation is avaliable only after parsing is successfully finished.");
+            }
+            File.WriteAllLines(filePath, Links);
+        }
+
     }
 }
