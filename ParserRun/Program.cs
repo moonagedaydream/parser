@@ -14,7 +14,7 @@ namespace ParserRun {
             try {
                 //Parser parser = new HtmlAgilityPackParser();
 
-                HtmlParser parser = new AngleSharpParser();
+                HtmlParser parser = new CsQueryParser();
 
                 parser.Parse(@"C:\Users\Мария\Documents\Visual Studio 2013\Projects\ParserLibrary\ParserTest\HtmlTest\AppliedMathematicMainPage.html");//"C:\Users\Мария\Documents\test.html");
                 //parser.BeautifyText();

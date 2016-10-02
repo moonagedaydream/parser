@@ -4,7 +4,6 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using AngleSharp.Dom.Html;
-using HtmlAgilityPack;
 
 namespace ParserLibrary.HtmlParsers {
     public class AngleSharpParser : HtmlParser {
