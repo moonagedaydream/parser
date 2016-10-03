@@ -44,8 +44,6 @@ namespace ParserLibrary.HtmlParsers {
                     TryAddLink(href);
                 }
 
-                GetLinksUsingRegex();
-
                 Size = new FileInfo(fileToParse).Length;
                 Status = ParsingStatus.Completed;
 
