@@ -170,9 +170,6 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <None Include="HtmlTest\BigPage.html">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
     <None Include="HtmlTest\ChinishSymbols.html">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
@@ -200,39 +197,18 @@
     <None Include="HtmlTest\Numbers.html">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Include="HtmlTest\OnlyScripts.html">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Include="HtmlTest\OutterLinks.html">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
     <None Include="HtmlTest\RussianLetters.html">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Include="HtmlTest\RussianText.html">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
     <None Include="HtmlTest\SpecialCharacters.html">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Include="HtmlTest\UTF8Head.html">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Include="HtmlTest\UTF8XML.html">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
     <None Include="HtmlTest\Windows1251Encoding.html">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Include="HtmlTest\WithFormulas.html">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Include="HtmlTest\WithTableAndPictures.html">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
   </ItemGroup>
   <ItemGroup>
-    <None Include="HtmlTest\Contents.html">
+    <None Include="HtmlTest\CommentedLinks.html">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
   </ItemGroup>

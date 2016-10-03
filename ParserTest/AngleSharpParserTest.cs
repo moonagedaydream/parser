@@ -2,9 +2,8 @@
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
+using System.Text;
 using NUnit.Framework;
-using ParserLibrary;
-using ParserLibrary.PdfParsers;
 using ParserLibrary.HtmlParsers;
 
 namespace ParserTest
@@ -39,32 +38,19 @@ namespace ParserTest
       HtmlParser parser = new AngleSharpParser();
       parser.Parse(Constants.pathToChineseSymbolsHtml);
       
-      Assert.AreEqual(Constants.emptyDocExpectedResult, parser.Text);
+      Assert.AreEqual(Constants.chineseSymbolsExpectedResult + Constants.htmlAngleSharpParserEnding, parser.Text);
     }
 
     /// <summary>
     /// Parse html with columns and numeration.
     /// </summary>
     [Test]
-    public void ColumnsAndNumerationHtml()
+    public void OuterLinksHtml()
     {
       HtmlParser parser = new AngleSharpParser();
       parser.Parse(Constants.pathToColumnAndNumerationHtml);
-      parser.SaveAllLinksToFile(Constants.pathToEmptyDocText2);
-      //Assert.AreEqual(Constants.columnAndNumerationExpectedResult, parser.Text);
-      CollectionAssert.AreEqual(new List<string>(), parser.Links);
-    }
 
-    /// <summary>
-    /// Parse html with contents.
-    /// </summary>
-    [Test]
-    public void ContentsHtml()
-    {
-      HtmlParser parser = new AngleSharpParser();
-      parser.Parse(Constants.pathToContentsHtml);
-
-      Assert.AreEqual(Constants.contentsExpectedResult, parser.Text);
+      CollectionAssert.AreEqual(Constants.columnAndNumerationLinks, parser.Links);
     }
 
     /// <summary>
@@ -76,8 +62,19 @@ namespace ParserTest
       HtmlParser parser = new AngleSharpParser();
       parser.Parse(Constants.pathToEmptyTextAndLinksHtml);
 
-      Assert.AreEqual(String.Empty, parser.Text);
       CollectionAssert.AreEqual(new List<string>(), parser.Links);
+    }
+
+    /// <summary>
+    /// Parse html with no text.
+    /// </summary>
+    [Test]
+    public void NoTextAndLinksTextHtml()
+    {
+      HtmlParser parser = new AngleSharpParser();
+      parser.Parse(Constants.pathToEmptyTextAndLinksHtml);
+
+      Assert.AreEqual(String.Empty, parser.Text);
     }
 
     /// <summary>
@@ -108,24 +105,97 @@ namespace ParserTest
     /// Parse html with false encoding in body.
     /// </summary>
     [Test]
-    public void FalseEncodingInBodyHtml()
+    public void DetectEncodingMetaCharsetHtml()
     {
       HtmlParser parser = new AngleSharpParser();
       parser.Parse(Constants.pathToFalseEncodingInBodyHtml);
 
-      Assert.AreEqual(Constants.falseEncodingInBodyExpectedResult + Constants.htmlAngleSharpParserEnding, parser.Text);
+      Assert.AreEqual(Encoding.UTF8, parser.Encoding);
     }
 
     /// <summary>
-    /// Parse html with local links.
+    /// Parse html with false encoding in body.
+    /// </summary>
+    [Test]
+    public void DetectEncodingXmlEncodingHtml()
+    {
+      HtmlParser parser = new AngleSharpParser();
+      parser.Parse(Constants.pathToAppliedMathematicMainPageyHtml);
+
+      Assert.AreEqual(Encoding.UTF8, parser.Encoding);    
+    }
+
+    /// <summary>
+    /// Parse html with links.
     /// </summary>
     [Test]
     public void LocalLinksHtml()
     {
       HtmlParser parser = new AngleSharpParser();
       parser.Parse(Constants.pathToLocalLinksHtml);
-      parser.SaveTextToFile(Constants.pathToEmptyDocText);
+
+      CollectionAssert.AreEqual(Constants.localLinks, parser.Links);
+    }
+
+    /// <summary>
+    /// Parse html with local links.
+    /// </summary>
+    [Test]
+    public void NumbersTextHtml()
+    {
+      HtmlParser parser = new AngleSharpParser();
+      parser.Parse(Constants.pathToNumbersHtml);
+
+      Assert.AreEqual(Constants.numbersExpectedResult+Constants.htmlAngleSharpParserEnding, parser.Text);
+    }
+
+    /// <summary>
+    /// Parse html with only commented links.
+    /// </summary>
+    [Test]
+    public void CommentedLinksHtml()
+    {
+      HtmlParser parser = new AngleSharpParser();
+      parser.Parse(Constants.pathToCommentedLinksHtml);
+
       CollectionAssert.AreEqual(new List<string>(), parser.Links);
+    }
+
+    /// <summary>
+    /// Parse html with Russian letters.
+    /// </summary>
+    [Test]
+    public void RussianLettersTextHtml()
+    {
+      HtmlParser parser = new AngleSharpParser();
+      parser.Parse(Constants.pathToRussianLettersHtml);
+
+      Assert.AreEqual(Constants.RussianLettersExpectedResult + Constants.htmlAngleSharpParserEnding, parser.Text);
+    }
+
+    /// <summary>
+    /// Parse html with special characters.
+    /// </summary>
+    [Test]
+    [Ignore("Ignore special characters")]
+    public void SpecialCharactersTextHtml()
+    {
+      HtmlParser parser = new AngleSharpParser();
+      parser.Parse(Constants.pathToSpecialCharactersHtml);
+      
+      Assert.AreEqual(Constants.specialCharactersExpectedResult + Constants.htmlAngleSharpParserEnding, parser.Text);
+    }
+
+    /// <summary>
+    /// Parse html with special characters.
+    /// </summary>
+    [Test]
+    public void Windows1251EncodingHtml()
+    {
+      HtmlParser parser = new AngleSharpParser();
+      parser.Parse(Constants.pathToWindows1251EncodingHtml);
+
+      Assert.AreEqual(Encoding.GetEncoding("windows-1251"), parser.Encoding);
     }
 
     /// <summary>

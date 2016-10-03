@@ -33,6 +33,7 @@ namespace ParserTest
     public static string pathToEmptyDoc = Path.Combine(Environment.CurrentDirectory, @"DocTest\", "Empty.docx");
     public static string pathToEmptyPdf = Path.Combine(Environment.CurrentDirectory, @"PdfTest\", "Empty.pdf");
     public static string emptyDocExpectedResult = string.Empty;
+    public static string chineseSymbolsExpectedResult = "\r\n九月21日，英国《泰晤士高等教育》全球大学年度排行榜公布的2...";
 
     public static string pathToChineseSymbolsHtml = Path.Combine(Environment.CurrentDirectory, @"HtmlTest\", "ChinishSymbols.html");
 
@@ -58,6 +59,14 @@ namespace ParserTest
     public static string unknownExpectedResult = "_";
     public static string columnAndNumerationExpectedResult = "References ^ \"Captain America: Civil War (12A)\". British Board of Film Classification. April 18, 2016. Archived from the original on May 15, 2016. Retrieved April 18, 2016. ^ McMillian, Graeme (March 9, 2016). \"\'Captain America: Civil War\' Will Be the Longest Marvel Studios Film to Date\". The Hollywood Reporter. Archived from the original on March 9, 2016. Retrieved March 9, 2016.^ a b c \"Captain America: Civil War (2016)\". Box Office Mojo. Retrieved September 4, 2016.";
 
+    public static List<string> columnAndNumerationLinks = new List<string>
+    {
+      "http://bbfc.co.uk/releases/captain-america-civil-war-film-0/",
+      "http://webcitation.org/6hWife8Ar/",
+      "http://hollywoodreporter.com/heat-vision/captain-america-civil-war-run-873534/",
+      "http://webcitation.org/6ftL3F9vN/"
+    }; 
+
     public static string pathToContentsHtml = Path.Combine(Environment.CurrentDirectory, @"HtmlTest\", "Contents.html");
     public static string contentsExpectedResult = "Contents 1 Plot 2 Cast 3 Production 3.1 Development 3.2 Pre-production 3.3 Filming 3.4 Post-production";
 
@@ -67,7 +76,25 @@ namespace ParserTest
 
     public static string pathToFalseEncodingInBodyHtml = Path.Combine(Environment.CurrentDirectory, @"HtmlTest\", "FalseEncodingInBody.html");
     public static string pathToLocalLinksHtml = Path.Combine(Environment.CurrentDirectory, @"HtmlTest\", "LocalLinks.html");
+    public static string pathToNumbersHtml = Path.Combine(Environment.CurrentDirectory, @"HtmlTest\", "Numbers.html");
+    public static string pathToCommentedLinksHtml = Path.Combine(Environment.CurrentDirectory, @"HtmlTest\", "CommentedLinks.html");
 
+    public static string pathToRussianLettersHtml = Path.Combine(Environment.CurrentDirectory, @"HtmlTest\", "RussianLetters.html");
+    public static string pathToSpecialCharactersHtml = Path.Combine(Environment.CurrentDirectory, @"HtmlTest\", "SpecialCharacters.html");
+
+    public static string pathToWindows1251EncodingHtml = Path.Combine(Environment.CurrentDirectory, @"HtmlTest\", "Windows1251Encoding.html");
+
+
+    public static List<string> localLinks = new List<string>
+    {
+      "/",
+      "/AGSM/",
+      "/BIOL/",
+      "/Events/PhysTraining/"
+    };
+
+
+    public static string pathToAppliedMathematicMainPageyHtml = Path.Combine(Environment.CurrentDirectory, @"HtmlTest\", "AppliedMathematicMainPage.html");
 
     public static string pathToHugeDocumentDoc = Path.Combine(Environment.CurrentDirectory, @"DocTest\", "HugeDocument.docx");
     public static string pathToHugeDocumentPdf = Path.Combine(Environment.CurrentDirectory, @"PdfTest\", "HugeDocument.pdf");
