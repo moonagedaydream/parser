@@ -1,0 +1,1062 @@
+﻿<html>
+  <style type="text/css">html,body,ul{color:#000;background-color:#fff;margin:0;padding:0}ul{list-style-type:none;}ul ul{padding-left:16px}.t0{color:#808080;font-style:italic;}.t1{color:#ff0000;}.t2{color:#008000;}.t3{color:#6d6d6d;}.t4{color:#ff8c00;}.i0{display:inline-block;vertical-align:text-bottom;margin-right:2px;background:url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAG4SURBVDhPrZO/S1tRHMU/L30ao6JBqEKROljUhgoZ/BFcKpROlkjBxaEgdXQQ9A8Q14KDQ/eAQ3B0cxRcFFJ8WHCwakPt0lKqVaOk+XE9ee9hiIQo6IHDve97zznve+97l4fC8scbLLzGzv1iylgMYxiwLGyNThG2gwESi3tc+FIXFQFzPfTZkOxtJxp5Bs/bIBCAn39h/zc4x6Qtw+SnA7Z8Szlgrou+UAOp8QhNg51+8Rb2FLK6Sz7zn7dLh2yUasr32s5bJOPdMuutXFZnpBk+vJS2wMpsF2FVvYA/h0z1thAdavWEtfgiCLGndOaLzKviBehh+FWTJpn7sb9RnjwxPXn42MHOjxGMeSPeBWkyo5jpDk5KXq+DAg12VpNSm3dBmsCV24E+WDkg9e3UWySqD1OL0nyXVh6n5HUDCgW2nTNNquy3Gp1/8hS9f8ENKAZJbF6S/qIFt4saTJ/D2hmn2RzLqpTxPkRsOkTua4sOMlydR62YmUZMPMSEb6vE2BNG39kcf67DpMQL8UrcFRNivI6TsfpKs06lEuMQzlruTxLT6oBG22jbulBbugfL67oarvBxANccrN6kQK7/bwAAAABJRU5ErkJggg==') no-repeat;width:16px;height:16px;background-size: 16px 16px;}.i1{display:inline-block;vertical-align:text-bottom;margin-right:2px;background:url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAGESURBVDhPY6AUMEJphtD0uv9QJkkAbkBQSuV/ScNchl+//zL8/gPC/4Dsfwy/YXwg+xdUHCQGUqfEuIGBCaqf4c+fP1AW8QCkB27Avz+/oCziAYoej4js/3/+/vv/89cfovDqvXf+g/QgeeE3mP7y/Q9RGARAepC8ADHg87dfRGEQAOnBcMHnb7+JwiAA0sMiHy/Pwfj5b/8ThiMMKqHyYAlsYHnjaSgLAf6CXMDym7HewNgwY+q0aQxrV69jYOZgBmMYG0bHtFswfP4OtB2K4QYwcTAH+AT4MGw/sI0hMjUCrHjuvLkMn39/QqFB4l+AGmEYbgALO7OGmLwYw8kLJxmY2YG2A3FmYSbDpz+fUGiQuDAfBwMPBwsDCxMk6EAJiVGnUPN+YnqiwqljpxiuXr4KlqioLwfTyKCjsZOB6bgUlIcAjPqV2tNV1FUybF1sGdjY2Rhm9s0CS6QXpYHZMBoELrZfgecdGGDUr9cXYGZiWA5ke0CEsINz9RcxNDMwMDAAAJ5eNxV5XnkXAAAAAElFTkSuQmCC') no-repeat;width:16px;height:16px;background-size: 16px 16px;}.i2{display:inline-block;vertical-align:text-bottom;margin-right:2px;background:url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAGlSURBVDhPzZK/agJBEMbHQ2wU1D4voESJYJHelIIWqUSwiUQxlecD2KUMQSxiHsDCNpUcpLAIVucfrC5ICuGChUQ98SDqZuZu4mEIdoH8YNi9b2e/250d+BPm8/m5YRjPGIJiuVyqGBe8fJzFYnGp6/pnpVKxNlMUCgUxHo/J6IbT9kg8WqxWqxMhxGO5XHb7/X5WASKRCBSLRZjNZndoeMayxYEBct1sNgPT6RRKpRJLALlcDsiw0Wi48VO2VZsDA/x7utfrQTQaBY/Hw6pNPB6Hfr9P0yTmkZHF3gCP9jIajU4nkwnk83lWHZLJJKzXa+h2uwG8qsqyAxUrFouJWq22L97PoDXKoTlvO7jCW7VahU6nQ8ViyYE0RVFAlmW66jvLjoHX6w0lEolXn88H9XqdVYdWqwWmaUI6nTY2m02IZcfA5XKZODxRAYfDIWy3W3uBGQwGEA6HaaoEg8EPS0QOXmG32z1kMhlTkiTA52QVoN1uAzYSYEPR8e9Z/h3qNk3TRDab3RcvlUoJVVUFVv+W045D7YwbtW8DNNVRu+LlfwXAF1Es/Y/N/JzwAAAAAElFTkSuQmCC') no-repeat;width:16px;height:16px;background-size: 16px 16px;}.i3{display:inline-block;vertical-align:text-bottom;margin-right:2px;background:url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAHrSURBVDhPY6AUMEJpgoCpwOg8kDKA8CDg34RzxOlnK9IP0O31+3/n/xUw3vJk63/WQv3nIDkmsAoCgInxb32amz/Dt/9/wHjy7lUMLMx/OsFyYBV4AGepZoCajLSBiZY+w1eg5kvP7jEcuX7yxXfuLzNA8gQNYGH+Wx/hgrB94d7VDExM/zoZGh/+AMnjNYC/UjlASUraQEddj+Hrvz8M14G2n7556oUQ+0+w7SDAAiJEahT+g3lQAOTcecssr8ny92G9t4Mv2GYQWH9wDVDDn86HUNtBAGwAC8PfOymx5SqK8hpgwTlLOlXuPby+XFJC3kBZDWg70IAXrx4xXAXazs3KPOMNWBUEgL3AxPy3de+RtXB/2tj6MLAw/QuxtfOBi+05tI6Bmfkviu0gADbgGcOzJU+fXLtz+9FVsG3CssoMRqZODNIqumD+o5f3GO7cPf2ChYEN7ncYYAaTBxn+CThxff786VWAnLYlw2+GfwySilpgGoSP7l3E8Onts9qHDc+PgNUjAXgsKPx9veT102t3Hj66Agzx33D8DGj7s3unXzD848awHQTgBhxsZPjDzPyn9cbpDUA//4XjG6c3glIiht9hACUz2NczsLzi4rrOyMCoAhVi+P+f4cW3718VHzYyYDWAQsDAAACG3u0r6bAP3wAAAABJRU5ErkJggg==') no-repeat;width:16px;height:16px;background-size: 16px 16px;}.i4{display:inline-block;vertical-align:text-bottom;margin-right:2px;background:url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAJKSURBVDhPzZNtSFNRHMafq9vuJZRo5NuSbKjTIGgmgWQv0wpGoDI2l7WRlX7I0to+1JcwmVEGBrqCSiwwwfRLL9LbisAUMsoGg9QmjYWlNtK9uCZlWzvdexsXFgSDvvTAn3Puef6/58L/cPCvSo6tCakFSCkHBncA08PAR+4siXcSEAezf3u8AVAzgI393sqdU7z7h9QV5hJCJWkpAiXbkkeR6IfVM+MKrWtsTVXIDxvbMwa4zgD5cQFqTUu2iIq0SVelGstVSijysyHPycLs3DwoqxWbeq/CJivAcMi7QAcXtlkAZwwFtHvPqqoN5+Z7+56SQCBAPL5For/0muSceEa6KkyEACTceIzcvjdC9te2LWn0rTUxFNAZ2nWHj1wO2+2TJPTVz5eu8yWB4T4xFdfz8EBJteBNTbnJ0ePXiM7Y3sgPkRbT/Q11KlGuXIpIeJmv0feLMDkH0WG/js7CKtTkHhC8jLQVMDftAi2iO/gAkURycuCOA7OffQizDVyddj8QYHNxPdZnMoLn8wdxs+8NxGLJRWGIdQ09RoYRde/ZvY4pffUIKy3ncWuzFgbFQRRm0ug2ypCXLsGE04uHNnckuPSj+caVQxeEAO6eo1kFI0UZ8iKNwwZ3pR7+5lNIT2Pg9S1jzvMNbyf8mJ4JjUeBpi7rvuccJwS0AkMbAVUlux+VynB3e+33sFz5hSRL1rIzdLGtDhKNPpGmSnsslrLIbyo+QJcC9LMhoheA5ydQFnfPf5HwFoaAyVLg3SdgCwvvTAT+HwT8AtnN9G1P2IhXAAAAAElFTkSuQmCC') no-repeat;width:16px;height:16px;background-size: 16px 16px;}</style>
+  <body>
+    <ul>
+      <li>
+        <i class="i0" tooltip="D:\Study\Blekanov\ParserNew\parser\ParserTest\bin\Debug\ParserTest.dll"></i>
+        <i class="i1"></i>
+        <span>&lt;ParserTest&gt;</span>
+        <span class="t0"> (129 tests)</span>
+        <span class="t1">28 tests failed</span>
+      </li>
+      <ul>
+        <li>
+          <i class="i0"></i>
+          <i class="i2"></i>
+          <span>ParserTest</span>
+          <span class="t0"> (129 tests)</span>
+          <span class="t1">28 tests failed</span>
+        </li>
+        <ul>
+          <li>
+            <i class="i0"></i>
+            <span>AngleSharpParserTest</span>
+            <span class="t0"> (16 tests)</span>
+            <span class="t1">3 tests failed</span>
+            <span class="t1">: </span>
+            <span class="t1">One or more child tests had errors</span>
+          </li>
+          <ul>
+            <li>
+              <i class="i3"></i>
+              <span>CanSaveText</span>
+              <span class="t2">Success</span>
+            </li>
+          </ul>
+          <ul>
+            <li>
+              <i class="i3"></i>
+              <span>ChineseSymbolsHtml</span>
+              <span class="t2">Success</span>
+            </li>
+          </ul>
+          <ul>
+            <li>
+              <i class="i3"></i>
+              <span>CommentedLinksHtml</span>
+              <span class="t2">Success</span>
+            </li>
+          </ul>
+          <ul>
+            <li>
+              <i class="i0"></i>
+              <span>DetectEncodingMetaCharsetHtml</span>
+              <span class="t1">Failed</span>
+              <span class="t1">: </span>
+              <span class="t1"> Expected: &lt;System.Text.UTF8Encoding&gt; But was: &lt;System.Text.UnicodeEncoding&gt;</span>
+            </li>
+          </ul>
+          <ul>
+            <li>
+              <i class="i0"></i>
+              <span>DetectEncodingXmlEncodingHtml</span>
+              <span class="t1">Failed</span>
+              <span class="t1">: </span>
+              <span class="t1"> Expected: &lt;System.Text.UTF8Encoding&gt; But was: &lt;System.Text.UnicodeEncoding&gt;</span>
+            </li>
+          </ul>
+          <ul>
+            <li>
+              <i class="i3"></i>
+              <span>EnglishLettersHtml</span>
+              <span class="t2">Success</span>
+            </li>
+          </ul>
+          <ul>
+            <li>
+              <i class="i3"></i>
+              <span>EnglishTextHtml</span>
+              <span class="t2">Success</span>
+            </li>
+          </ul>
+          <ul>
+            <li>
+              <i class="i3"></i>
+              <span>HugeHtml</span>
+              <span class="t2">Success</span>
+            </li>
+          </ul>
+          <ul>
+            <li>
+              <i class="i3"></i>
+              <span>LocalLinksHtml</span>
+              <span class="t2">Success</span>
+            </li>
+          </ul>
+          <ul>
+            <li>
+              <i class="i3"></i>
+              <span>NoTextAndLinksHtml</span>
+              <span class="t2">Success</span>
+            </li>
+          </ul>
+          <ul>
+            <li>
+              <i class="i3"></i>
+              <span>NoTextAndLinksTextHtml</span>
+              <span class="t2">Success</span>
+            </li>
+          </ul>
+          <ul>
+            <li>
+              <i class="i3"></i>
+              <span>NumbersTextHtml</span>
+              <span class="t2">Success</span>
+            </li>
+          </ul>
+          <ul>
+            <li>
+              <i class="i3"></i>
+              <span>OuterLinksHtml</span>
+              <span class="t2">Success</span>
+            </li>
+          </ul>
+          <ul>
+            <li>
+              <i class="i3"></i>
+              <span>RussianLettersTextHtml</span>
+              <span class="t2">Success</span>
+            </li>
+          </ul>
+          <ul>
+            <li>
+              <i class="i4"></i>
+              <span class="t3">SpecialCharactersTextHtml</span>
+              <span class="t4">Ignored</span>
+            </li>
+          </ul>
+          <ul>
+            <li>
+              <i class="i0"></i>
+              <span>Windows1251EncodingHtml</span>
+              <span class="t1">Failed</span>
+              <span class="t1">: </span>
+              <span class="t1"> Expected: &lt;System.Text.SBCSCodePageEncoding&gt; But was: &lt;System.Text.UnicodeEncoding&gt;</span>
+            </li>
+          </ul>
+        </ul>
+        <ul>
+          <li>
+            <i class="i0"></i>
+            <span>CsQueryParserTest</span>
+            <span class="t0"> (16 tests)</span>
+            <span class="t1">4 tests failed</span>
+            <span class="t1">: </span>
+            <span class="t1">One or more child tests had errors</span>
+          </li>
+          <ul>
+            <li>
+              <i class="i3"></i>
+              <span>CanSaveText</span>
+              <span class="t2">Success</span>
+            </li>
+          </ul>
+          <ul>
+            <li>
+              <i class="i3"></i>
+              <span>ChineseSymbolsHtml</span>
+              <span class="t2">Success</span>
+            </li>
+          </ul>
+          <ul>
+            <li>
+              <i class="i3"></i>
+              <span>CommentedLinksHtml</span>
+              <span class="t2">Success</span>
+            </li>
+          </ul>
+          <ul>
+            <li>
+              <i class="i0"></i>
+              <span>DetectEncodingMetaCharsetHtml</span>
+              <span class="t1">Failed</span>
+              <span class="t1">: </span>
+              <span class="t1"> Expected: &lt;System.Text.UTF8Encoding&gt; But was: &lt;System.Text.UnicodeEncoding&gt;</span>
+            </li>
+          </ul>
+          <ul>
+            <li>
+              <i class="i0"></i>
+              <span>DetectEncodingXmlEncodingHtml</span>
+              <span class="t1">Failed</span>
+              <span class="t1">: </span>
+              <span class="t1"> Expected: &lt;System.Text.UTF8Encoding&gt; But was: &lt;System.Text.UnicodeEncoding&gt;</span>
+            </li>
+          </ul>
+          <ul>
+            <li>
+              <i class="i3"></i>
+              <span>EnglishLettersHtml</span>
+              <span class="t2">Success</span>
+            </li>
+          </ul>
+          <ul>
+            <li>
+              <i class="i3"></i>
+              <span>EnglishTextHtml</span>
+              <span class="t2">Success</span>
+            </li>
+          </ul>
+          <ul>
+            <li>
+              <i class="i0"></i>
+              <span>HugeHtml</span>
+              <span class="t1">Failed</span>
+              <span class="t1">: </span>
+              <span class="t1"> Expected: less than 00:00:02 But was: 00:00:19.8808317</span>
+            </li>
+          </ul>
+          <ul>
+            <li>
+              <i class="i3"></i>
+              <span>LocalLinksHtml</span>
+              <span class="t2">Success</span>
+            </li>
+          </ul>
+          <ul>
+            <li>
+              <i class="i3"></i>
+              <span>NoTextAndLinksHtml</span>
+              <span class="t2">Success</span>
+            </li>
+          </ul>
+          <ul>
+            <li>
+              <i class="i3"></i>
+              <span>NoTextAndLinksTextHtml</span>
+              <span class="t2">Success</span>
+            </li>
+          </ul>
+          <ul>
+            <li>
+              <i class="i3"></i>
+              <span>NumbersTextHtml</span>
+              <span class="t2">Success</span>
+            </li>
+          </ul>
+          <ul>
+            <li>
+              <i class="i3"></i>
+              <span>OuterLinksHtml</span>
+              <span class="t2">Success</span>
+            </li>
+          </ul>
+          <ul>
+            <li>
+              <i class="i3"></i>
+              <span>RussianLettersTextHtml</span>
+              <span class="t2">Success</span>
+            </li>
+          </ul>
+          <ul>
+            <li>
+              <i class="i4"></i>
+              <span class="t3">SpecialCharactersTextHtml</span>
+              <span class="t4">Ignored</span>
+            </li>
+          </ul>
+          <ul>
+            <li>
+              <i class="i0"></i>
+              <span>Windows1251EncodingHtml</span>
+              <span class="t1">Failed</span>
+              <span class="t1">: </span>
+              <span class="t1"> Expected: &lt;System.Text.SBCSCodePageEncoding&gt; But was: &lt;System.Text.UnicodeEncoding&gt;</span>
+            </li>
+          </ul>
+        </ul>
+        <ul>
+          <li>
+            <i class="i0"></i>
+            <span>DocXParserTest</span>
+            <span class="t0"> (17 tests)</span>
+            <span class="t1">1 test failed</span>
+            <span class="t1">: </span>
+            <span class="t1">One or more child tests had errors</span>
+          </li>
+          <ul>
+            <li>
+              <i class="i3"></i>
+              <span>CanSaveText</span>
+              <span class="t2">Success</span>
+            </li>
+          </ul>
+          <ul>
+            <li>
+              <i class="i0"></i>
+              <span>DocDoc</span>
+              <span class="t1">Failed</span>
+              <span class="t1">: </span>
+              <span class="t1">System.IO.FileFormatException : File contains corrupted data.</span>
+            </li>
+          </ul>
+          <ul>
+            <li>
+              <i class="i3"></i>
+              <span>Empty0SizeDoc</span>
+              <span class="t2">Success</span>
+            </li>
+          </ul>
+          <ul>
+            <li>
+              <i class="i3"></i>
+              <span>EnglishLettersDoc</span>
+              <span class="t2">Success</span>
+            </li>
+          </ul>
+          <ul>
+            <li>
+              <i class="i3"></i>
+              <span>HugeDoc</span>
+              <span class="t2">Success</span>
+            </li>
+          </ul>
+          <ul>
+            <li>
+              <i class="i3"></i>
+              <span>NumbersDoc</span>
+              <span class="t2">Success</span>
+            </li>
+          </ul>
+          <ul>
+            <li>
+              <i class="i3"></i>
+              <span>OpenedEmptyDoc</span>
+              <span class="t2">Success</span>
+            </li>
+          </ul>
+          <ul>
+            <li>
+              <i class="i3"></i>
+              <span>RussianLettersDoc</span>
+              <span class="t2">Success</span>
+            </li>
+          </ul>
+          <ul>
+            <li>
+              <i class="i3"></i>
+              <span>SpecialCharactersDoc</span>
+              <span class="t2">Success</span>
+            </li>
+          </ul>
+          <ul>
+            <li>
+              <i class="i3"></i>
+              <span>WithColumnsDoc</span>
+              <span class="t2">Success</span>
+            </li>
+          </ul>
+          <ul>
+            <li>
+              <i class="i3"></i>
+              <span>WithContentsDoc</span>
+              <span class="t2">Success</span>
+            </li>
+          </ul>
+          <ul>
+            <li>
+              <i class="i3"></i>
+              <span>WithFootnotesDoc</span>
+              <span class="t2">Success</span>
+            </li>
+          </ul>
+          <ul>
+            <li>
+              <i class="i3"></i>
+              <span>WithFormulasDoc</span>
+              <span class="t2">Success</span>
+            </li>
+          </ul>
+          <ul>
+            <li>
+              <i class="i3"></i>
+              <span>WithLinkDoc</span>
+              <span class="t2">Success</span>
+            </li>
+          </ul>
+          <ul>
+            <li>
+              <i class="i3"></i>
+              <span>WithNumerationDoc</span>
+              <span class="t2">Success</span>
+            </li>
+          </ul>
+          <ul>
+            <li>
+              <i class="i3"></i>
+              <span>WithPictureDoc</span>
+              <span class="t2">Success</span>
+            </li>
+          </ul>
+          <ul>
+            <li>
+              <i class="i3"></i>
+              <span>WithTableDoc</span>
+              <span class="t2">Success</span>
+            </li>
+          </ul>
+        </ul>
+        <ul>
+          <li>
+            <i class="i0"></i>
+            <span>HtmlAgilityPackParserTest</span>
+            <span class="t0"> (16 tests)</span>
+            <span class="t1">10 tests failed</span>
+            <span class="t1">: </span>
+            <span class="t1">One or more child tests had errors</span>
+          </li>
+          <ul>
+            <li>
+              <i class="i3"></i>
+              <span>CanSaveText</span>
+              <span class="t2">Success</span>
+            </li>
+          </ul>
+          <ul>
+            <li>
+              <i class="i0"></i>
+              <span>ChineseSymbolsHtml</span>
+              <span class="t1">Failed</span>
+              <span class="t1">: </span>
+              <span class="t1"> Expected string length 37 but was 0. Strings differ at index 0. Expected: "\r\n九月21日，英国《泰晤士高等教育》全球大学年度排行榜公布的2...\r\n</span>
+            </li>
+          </ul>
+          <ul>
+            <li>
+              <i class="i3"></i>
+              <span>CommentedLinksHtml</span>
+              <span class="t2">Success</span>
+            </li>
+          </ul>
+          <ul>
+            <li>
+              <i class="i0"></i>
+              <span>DetectEncodingMetaCharsetHtml</span>
+              <span class="t1">Failed</span>
+              <span class="t1">: </span>
+              <span class="t1"> Expected: &lt;System.Text.UTF8Encoding&gt; But was: &lt;System.Text.UnicodeEncoding&gt;</span>
+            </li>
+          </ul>
+          <ul>
+            <li>
+              <i class="i0"></i>
+              <span>DetectEncodingXmlEncodingHtml</span>
+              <span class="t1">Failed</span>
+              <span class="t1">: </span>
+              <span class="t1"> Expected: &lt;System.Text.UTF8Encoding&gt; But was: &lt;System.Text.UnicodeEncoding&gt;</span>
+            </li>
+          </ul>
+          <ul>
+            <li>
+              <i class="i0"></i>
+              <span>EnglishLettersHtml</span>
+              <span class="t1">Failed</span>
+              <span class="t1">: </span>
+              <span class="t1"> Expected string length 55 but was 0. Strings differ at index 0. Expected: "ABCDEFGHIJKLMNOPQRSTUVWXYZ abcdefghijklmn</span>
+            </li>
+          </ul>
+          <ul>
+            <li>
+              <i class="i0"></i>
+              <span>EnglishTextHtml</span>
+              <span class="t1">Failed</span>
+              <span class="t1">: </span>
+              <span class="t1"> Expected string length 859 but was 0. Strings differ at index 0. Expected: "Faculty of applied mathematics and contr</span>
+            </li>
+          </ul>
+          <ul>
+            <li>
+              <i class="i3"></i>
+              <span>HugeHtml</span>
+              <span class="t2">Success</span>
+            </li>
+          </ul>
+          <ul>
+            <li>
+              <i class="i0"></i>
+              <span>LocalLinksHtml</span>
+              <span class="t1">Failed</span>
+              <span class="t1">: </span>
+              <span class="t1"> Expected is &lt;System.Collections.Generic.List`1[System.String]&gt; with 4 elements, actual is &lt;System.Collections.Generic.</span>
+            </li>
+          </ul>
+          <ul>
+            <li>
+              <i class="i3"></i>
+              <span>NoTextAndLinksHtml</span>
+              <span class="t2">Success</span>
+            </li>
+          </ul>
+          <ul>
+            <li>
+              <i class="i3"></i>
+              <span>NoTextAndLinksTextHtml</span>
+              <span class="t2">Success</span>
+            </li>
+          </ul>
+          <ul>
+            <li>
+              <i class="i0"></i>
+              <span>NumbersTextHtml</span>
+              <span class="t1">Failed</span>
+              <span class="t1">: </span>
+              <span class="t1"> Expected string length 12 but was 0. Strings differ at index 0. Expected: "0123456789\r\n" But was: &lt;string.Empty</span>
+            </li>
+          </ul>
+          <ul>
+            <li>
+              <i class="i0"></i>
+              <span>OuterLinksHtml</span>
+              <span class="t1">Failed</span>
+              <span class="t1">: </span>
+              <span class="t1"> Expected is &lt;System.Collections.Generic.List`1[System.String]&gt; with 4 elements, actual is &lt;System.Collections.Generic.</span>
+            </li>
+          </ul>
+          <ul>
+            <li>
+              <i class="i0"></i>
+              <span>RussianLettersTextHtml</span>
+              <span class="t1">Failed</span>
+              <span class="t1">: </span>
+              <span class="t1"> Expected string length 68 but was 0. Strings differ at index 0. Expected: "ЁАБВГДЕЖЗИЙКЛМНОПРСТУФХЦЧШЩЪЫЬЭЮЯабвгдежз</span>
+            </li>
+          </ul>
+          <ul>
+            <li>
+              <i class="i4"></i>
+              <span class="t3">SpecialCharactersTextHtml</span>
+              <span class="t4">Ignored</span>
+            </li>
+          </ul>
+          <ul>
+            <li>
+              <i class="i0"></i>
+              <span>Windows1251EncodingHtml</span>
+              <span class="t1">Failed</span>
+              <span class="t1">: </span>
+              <span class="t1"> Expected: &lt;System.Text.SBCSCodePageEncoding&gt; But was: &lt;System.Text.UnicodeEncoding&gt;</span>
+            </li>
+          </ul>
+        </ul>
+        <ul>
+          <li>
+            <i class="i0"></i>
+            <span>MicrosoftWordParserTest</span>
+            <span class="t0"> (17 tests)</span>
+            <span class="t1">1 test failed</span>
+            <span class="t1">: </span>
+            <span class="t1">One or more child tests had errors</span>
+          </li>
+          <ul>
+            <li>
+              <i class="i3"></i>
+              <span>CanSaveText</span>
+              <span class="t2">Success</span>
+            </li>
+          </ul>
+          <ul>
+            <li>
+              <i class="i3"></i>
+              <span>DocDoc</span>
+              <span class="t2">Success</span>
+            </li>
+          </ul>
+          <ul>
+            <li>
+              <i class="i3"></i>
+              <span>Empty0SizeDoc</span>
+              <span class="t2">Success</span>
+            </li>
+          </ul>
+          <ul>
+            <li>
+              <i class="i3"></i>
+              <span>EnglishLettersDoc</span>
+              <span class="t2">Success</span>
+            </li>
+          </ul>
+          <ul>
+            <li>
+              <i class="i4"></i>
+              <span class="t3">HugeDoc</span>
+              <span class="t4">Ignored</span>
+            </li>
+          </ul>
+          <ul>
+            <li>
+              <i class="i3"></i>
+              <span>NumbersDoc</span>
+              <span class="t2">Success</span>
+            </li>
+          </ul>
+          <ul>
+            <li>
+              <i class="i3"></i>
+              <span>OpenedEmptyDoc</span>
+              <span class="t2">Success</span>
+            </li>
+          </ul>
+          <ul>
+            <li>
+              <i class="i3"></i>
+              <span>RussianLettersDoc</span>
+              <span class="t2">Success</span>
+            </li>
+          </ul>
+          <ul>
+            <li>
+              <i class="i3"></i>
+              <span>SpecialCharactersDoc</span>
+              <span class="t2">Success</span>
+            </li>
+          </ul>
+          <ul>
+            <li>
+              <i class="i3"></i>
+              <span>WithColumnsDoc</span>
+              <span class="t2">Success</span>
+            </li>
+          </ul>
+          <ul>
+            <li>
+              <i class="i3"></i>
+              <span>WithContentsDoc</span>
+              <span class="t2">Success</span>
+            </li>
+          </ul>
+          <ul>
+            <li>
+              <i class="i3"></i>
+              <span>WithFootnotesDoc</span>
+              <span class="t2">Success</span>
+            </li>
+          </ul>
+          <ul>
+            <li>
+              <i class="i0"></i>
+              <span>WithFormulasDoc</span>
+              <span class="t1">Failed</span>
+              <span class="t1">: </span>
+              <span class="t1"> Expected string length 20 but was 52. Strings differ at index 0. Expected: "x+an=k=0nnkxkan-k\r\r\n" But was: "\r</span>
+            </li>
+          </ul>
+          <ul>
+            <li>
+              <i class="i3"></i>
+              <span>WithLinkDoc</span>
+              <span class="t2">Success</span>
+            </li>
+          </ul>
+          <ul>
+            <li>
+              <i class="i3"></i>
+              <span>WithNumerationDoc</span>
+              <span class="t2">Success</span>
+            </li>
+          </ul>
+          <ul>
+            <li>
+              <i class="i3"></i>
+              <span>WithPictureDoc</span>
+              <span class="t2">Success</span>
+            </li>
+          </ul>
+          <ul>
+            <li>
+              <i class="i3"></i>
+              <span>WithTableDoc</span>
+              <span class="t2">Success</span>
+            </li>
+          </ul>
+        </ul>
+        <ul>
+          <li>
+            <i class="i0"></i>
+            <span>NpoiDocParserTest</span>
+            <span class="t0"> (17 tests)</span>
+            <span class="t1">4 tests failed</span>
+            <span class="t1">: </span>
+            <span class="t1">One or more child tests had errors</span>
+          </li>
+          <ul>
+            <li>
+              <i class="i3"></i>
+              <span>CanSaveText</span>
+              <span class="t2">Success</span>
+            </li>
+          </ul>
+          <ul>
+            <li>
+              <i class="i0"></i>
+              <span>DocDoc</span>
+              <span class="t1">Failed</span>
+              <span class="t1">: </span>
+              <span class="t1">ICSharpCode.SharpZipLib.Zip.ZipException : Wrong Local header signature: 0xE011CFD0</span>
+            </li>
+          </ul>
+          <ul>
+            <li>
+              <i class="i3"></i>
+              <span>Empty0SizeDoc</span>
+              <span class="t2">Success</span>
+            </li>
+          </ul>
+          <ul>
+            <li>
+              <i class="i3"></i>
+              <span>EnglishLettersDoc</span>
+              <span class="t2">Success</span>
+            </li>
+          </ul>
+          <ul>
+            <li>
+              <i class="i3"></i>
+              <span>HugeDoc</span>
+              <span class="t2">Success</span>
+            </li>
+          </ul>
+          <ul>
+            <li>
+              <i class="i3"></i>
+              <span>NumbersDoc</span>
+              <span class="t2">Success</span>
+            </li>
+          </ul>
+          <ul>
+            <li>
+              <i class="i3"></i>
+              <span>OpenedEmptyDoc</span>
+              <span class="t2">Success</span>
+            </li>
+          </ul>
+          <ul>
+            <li>
+              <i class="i3"></i>
+              <span>RussianLettersDoc</span>
+              <span class="t2">Success</span>
+            </li>
+          </ul>
+          <ul>
+            <li>
+              <i class="i3"></i>
+              <span>SpecialCharactersDoc</span>
+              <span class="t2">Success</span>
+            </li>
+          </ul>
+          <ul>
+            <li>
+              <i class="i3"></i>
+              <span>WithColumnsDoc</span>
+              <span class="t2">Success</span>
+            </li>
+          </ul>
+          <ul>
+            <li>
+              <i class="i0"></i>
+              <span>WithContentsDoc</span>
+              <span class="t1">Failed</span>
+              <span class="t1">: </span>
+              <span class="t1"> Expected string length 220 but was 0. Strings differ at index 0. Expected: "ОглавлениеВведите название главы (уровен</span>
+            </li>
+          </ul>
+          <ul>
+            <li>
+              <i class="i3"></i>
+              <span>WithFootnotesDoc</span>
+              <span class="t2">Success</span>
+            </li>
+          </ul>
+          <ul>
+            <li>
+              <i class="i0"></i>
+              <span>WithFormulasDoc</span>
+              <span class="t1">Failed</span>
+              <span class="t1">: </span>
+              <span class="t1"> Expected string length 17 but was 0. Strings differ at index 0. Expected: "x+an=k=0nnkxkan-k" But was: &lt;string.Em</span>
+            </li>
+          </ul>
+          <ul>
+            <li>
+              <i class="i3"></i>
+              <span>WithLinkDoc</span>
+              <span class="t2">Success</span>
+            </li>
+          </ul>
+          <ul>
+            <li>
+              <i class="i3"></i>
+              <span>WithNumerationDoc</span>
+              <span class="t2">Success</span>
+            </li>
+          </ul>
+          <ul>
+            <li>
+              <i class="i3"></i>
+              <span>WithPictureDoc</span>
+              <span class="t2">Success</span>
+            </li>
+          </ul>
+          <ul>
+            <li>
+              <i class="i0"></i>
+              <span>WithTableDoc</span>
+              <span class="t1">Failed</span>
+              <span class="t1">: </span>
+              <span class="t1"> Expected string length 501 but was 265. Strings differ at index 0. Expected: "Based on Bioware's history, a "Dragon </span>
+            </li>
+          </ul>
+        </ul>
+        <ul>
+          <li>
+            <i class="i0"></i>
+            <span>PdfBoxParserTest</span>
+            <span class="t0"> (15 tests)</span>
+            <span class="t1">1 test failed</span>
+            <span class="t1">: </span>
+            <span class="t1">One or more child tests had errors</span>
+          </li>
+          <ul>
+            <li>
+              <i class="i3"></i>
+              <span>CanSaveText</span>
+              <span class="t2">Success</span>
+            </li>
+          </ul>
+          <ul>
+            <li>
+              <i class="i3"></i>
+              <span>EnglishLettersPdf</span>
+              <span class="t2">Success</span>
+            </li>
+          </ul>
+          <ul>
+            <li>
+              <i class="i3"></i>
+              <span>HugePdf</span>
+              <span class="t2">Success</span>
+            </li>
+          </ul>
+          <ul>
+            <li>
+              <i class="i3"></i>
+              <span>NumbersPdf</span>
+              <span class="t2">Success</span>
+            </li>
+          </ul>
+          <ul>
+            <li>
+              <i class="i3"></i>
+              <span>OpenedEmptyPdf</span>
+              <span class="t2">Success</span>
+            </li>
+          </ul>
+          <ul>
+            <li>
+              <i class="i3"></i>
+              <span>RussianLettersPdf</span>
+              <span class="t2">Success</span>
+            </li>
+          </ul>
+          <ul>
+            <li>
+              <i class="i3"></i>
+              <span>SpecialCharactersPdf</span>
+              <span class="t2">Success</span>
+            </li>
+          </ul>
+          <ul>
+            <li>
+              <i class="i3"></i>
+              <span>WithColumnsPdf</span>
+              <span class="t2">Success</span>
+            </li>
+          </ul>
+          <ul>
+            <li>
+              <i class="i3"></i>
+              <span>WithContentsPdf</span>
+              <span class="t2">Success</span>
+            </li>
+          </ul>
+          <ul>
+            <li>
+              <i class="i3"></i>
+              <span>WithFootnotesPdf</span>
+              <span class="t2">Success</span>
+            </li>
+          </ul>
+          <ul>
+            <li>
+              <i class="i0"></i>
+              <span>WithFormulasPdf</span>
+              <span class="t1">Failed</span>
+              <span class="t1">: </span>
+              <span class="t1"> Expected string length 20 but was 53. Strings differ at index 0. Expected: "x+an=k=0nnkxkan-k \r\n" But was: " +</span>
+            </li>
+          </ul>
+          <ul>
+            <li>
+              <i class="i3"></i>
+              <span>WithLinkPdf</span>
+              <span class="t2">Success</span>
+            </li>
+          </ul>
+          <ul>
+            <li>
+              <i class="i3"></i>
+              <span>WithNumerationPdf</span>
+              <span class="t2">Success</span>
+            </li>
+          </ul>
+          <ul>
+            <li>
+              <i class="i3"></i>
+              <span>WithPicturePdf</span>
+              <span class="t2">Success</span>
+            </li>
+          </ul>
+          <ul>
+            <li>
+              <i class="i3"></i>
+              <span>WithTablePdf</span>
+              <span class="t2">Success</span>
+            </li>
+          </ul>
+        </ul>
+        <ul>
+          <li>
+            <i class="i0"></i>
+            <span>TextSharpPdfParserTest</span>
+            <span class="t0"> (15 tests)</span>
+            <span class="t1">4 tests failed</span>
+            <span class="t1">: </span>
+            <span class="t1">One or more child tests had errors</span>
+          </li>
+          <ul>
+            <li>
+              <i class="i3"></i>
+              <span>CanSaveText</span>
+              <span class="t2">Success</span>
+            </li>
+          </ul>
+          <ul>
+            <li>
+              <i class="i3"></i>
+              <span>EnglishLettersPdf</span>
+              <span class="t2">Success</span>
+            </li>
+          </ul>
+          <ul>
+            <li>
+              <i class="i3"></i>
+              <span>HugePdf</span>
+              <span class="t2">Success</span>
+            </li>
+          </ul>
+          <ul>
+            <li>
+              <i class="i3"></i>
+              <span>NumbersPdf</span>
+              <span class="t2">Success</span>
+            </li>
+          </ul>
+          <ul>
+            <li>
+              <i class="i3"></i>
+              <span>OpenedEmptyPdf</span>
+              <span class="t2">Success</span>
+            </li>
+          </ul>
+          <ul>
+            <li>
+              <i class="i3"></i>
+              <span>RussianLettersPdf</span>
+              <span class="t2">Success</span>
+            </li>
+          </ul>
+          <ul>
+            <li>
+              <i class="i3"></i>
+              <span>SpecialCharactersPdf</span>
+              <span class="t2">Success</span>
+            </li>
+          </ul>
+          <ul>
+            <li>
+              <i class="i0"></i>
+              <span>WithColumnsPdf</span>
+              <span class="t1">Failed</span>
+              <span class="t1">: </span>
+              <span class="t1"> Expected string length 200 but was 217. Strings differ at index 8. Expected: "This is the film version of the Pulitz</span>
+            </li>
+          </ul>
+          <ul>
+            <li>
+              <i class="i3"></i>
+              <span>WithContentsPdf</span>
+              <span class="t2">Success</span>
+            </li>
+          </ul>
+          <ul>
+            <li>
+              <i class="i0"></i>
+              <span>WithFootnotesPdf</span>
+              <span class="t1">Failed</span>
+              <span class="t1">: </span>
+              <span class="t1"> Expected string length 60 but was 202. Strings differ at index 0. Expected: "One of the most iconic characters in po</span>
+            </li>
+          </ul>
+          <ul>
+            <li>
+              <i class="i0"></i>
+              <span>WithFormulasPdf</span>
+              <span class="t1">Failed</span>
+              <span class="t1">: </span>
+              <span class="t1"> Expected string length 18 but was 46. Strings differ at index 0. Expected: "x+an=k=0nnkxkan-k " But was: "\n\n </span>
+            </li>
+          </ul>
+          <ul>
+            <li>
+              <i class="i3"></i>
+              <span>WithLinkPdf</span>
+              <span class="t2">Success</span>
+            </li>
+          </ul>
+          <ul>
+            <li>
+              <i class="i3"></i>
+              <span>WithNumerationPdf</span>
+              <span class="t2">Success</span>
+            </li>
+          </ul>
+          <ul>
+            <li>
+              <i class="i3"></i>
+              <span>WithPicturePdf</span>
+              <span class="t2">Success</span>
+            </li>
+          </ul>
+          <ul>
+            <li>
+              <i class="i0"></i>
+              <span>WithTablePdf</span>
+              <span class="t1">Failed</span>
+              <span class="t1">: </span>
+              <span class="t1"> Expected string length 502 but was 515. Strings differ at index 0. Expected: "Based on Bioware's history, a "Dragon </span>
+            </li>
+          </ul>
+        </ul>
+      </ul>
+    </ul>
+  </body>
+</html>

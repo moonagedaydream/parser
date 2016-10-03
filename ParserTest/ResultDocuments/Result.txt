@@ -1,0 +1,139 @@
+<ParserTest> (129 tests), 28 tests failed
+  ParserTest (129 tests), 28 tests failed
+    AngleSharpParserTest (16 tests), 3 tests failed: One or more child tests had errors
+      CanSaveText, Success
+      ChineseSymbolsHtml, Success
+      CommentedLinksHtml, Success
+      DetectEncodingMetaCharsetHtml, Failed:  Expected: <System.Text.UTF8Encoding> But was: <System.Text.UnicodeEncoding>
+      DetectEncodingXmlEncodingHtml, Failed:  Expected: <System.Text.UTF8Encoding> But was: <System.Text.UnicodeEncoding>
+      EnglishLettersHtml, Success
+      EnglishTextHtml, Success
+      HugeHtml, Success
+      LocalLinksHtml, Success
+      NoTextAndLinksHtml, Success
+      NoTextAndLinksTextHtml, Success
+      NumbersTextHtml, Success
+      OuterLinksHtml, Success
+      RussianLettersTextHtml, Success
+      SpecialCharactersTextHtml, Ignored
+      Windows1251EncodingHtml, Failed:  Expected: <System.Text.SBCSCodePageEncoding> But was: <System.Text.UnicodeEncoding>
+    CsQueryParserTest (16 tests), 4 tests failed: One or more child tests had errors
+      CanSaveText, Success
+      ChineseSymbolsHtml, Success
+      CommentedLinksHtml, Success
+      DetectEncodingMetaCharsetHtml, Failed:  Expected: <System.Text.UTF8Encoding> But was: <System.Text.UnicodeEncoding>
+      DetectEncodingXmlEncodingHtml, Failed:  Expected: <System.Text.UTF8Encoding> But was: <System.Text.UnicodeEncoding>
+      EnglishLettersHtml, Success
+      EnglishTextHtml, Success
+      HugeHtml, Failed:  Expected: less than 00:00:02 But was: 00:00:19.8808317
+      LocalLinksHtml, Success
+      NoTextAndLinksHtml, Success
+      NoTextAndLinksTextHtml, Success
+      NumbersTextHtml, Success
+      OuterLinksHtml, Success
+      RussianLettersTextHtml, Success
+      SpecialCharactersTextHtml, Ignored
+      Windows1251EncodingHtml, Failed:  Expected: <System.Text.SBCSCodePageEncoding> But was: <System.Text.UnicodeEncoding>
+    DocXParserTest (17 tests), 1 test failed: One or more child tests had errors
+      CanSaveText, Success
+      DocDoc, Failed: System.IO.FileFormatException : File contains corrupted data.
+      Empty0SizeDoc, Success
+      EnglishLettersDoc, Success
+      HugeDoc, Success
+      NumbersDoc, Success
+      OpenedEmptyDoc, Success
+      RussianLettersDoc, Success
+      SpecialCharactersDoc, Success
+      WithColumnsDoc, Success
+      WithContentsDoc, Success
+      WithFootnotesDoc, Success
+      WithFormulasDoc, Success
+      WithLinkDoc, Success
+      WithNumerationDoc, Success
+      WithPictureDoc, Success
+      WithTableDoc, Success
+    HtmlAgilityPackParserTest (16 tests), 10 tests failed: One or more child tests had errors
+      CanSaveText, Success
+      ChineseSymbolsHtml, Failed:  Expected string length 37 but was 0. Strings differ at index 0. Expected: "\r\n九月21日，英国《泰晤士高等教育》全球大学年度排行榜公布的2...\r\n
+      CommentedLinksHtml, Success
+      DetectEncodingMetaCharsetHtml, Failed:  Expected: <System.Text.UTF8Encoding> But was: <System.Text.UnicodeEncoding>
+      DetectEncodingXmlEncodingHtml, Failed:  Expected: <System.Text.UTF8Encoding> But was: <System.Text.UnicodeEncoding>
+      EnglishLettersHtml, Failed:  Expected string length 55 but was 0. Strings differ at index 0. Expected: "ABCDEFGHIJKLMNOPQRSTUVWXYZ abcdefghijklmn
+      EnglishTextHtml, Failed:  Expected string length 859 but was 0. Strings differ at index 0. Expected: "Faculty of applied mathematics and contr
+      HugeHtml, Success
+      LocalLinksHtml, Failed:  Expected is <System.Collections.Generic.List`1[System.String]> with 4 elements, actual is <System.Collections.Generic.
+      NoTextAndLinksHtml, Success
+      NoTextAndLinksTextHtml, Success
+      NumbersTextHtml, Failed:  Expected string length 12 but was 0. Strings differ at index 0. Expected: "0123456789\r\n" But was: <string.Empty
+      OuterLinksHtml, Failed:  Expected is <System.Collections.Generic.List`1[System.String]> with 4 elements, actual is <System.Collections.Generic.
+      RussianLettersTextHtml, Failed:  Expected string length 68 but was 0. Strings differ at index 0. Expected: "ЁАБВГДЕЖЗИЙКЛМНОПРСТУФХЦЧШЩЪЫЬЭЮЯабвгдежз
+      SpecialCharactersTextHtml, Ignored
+      Windows1251EncodingHtml, Failed:  Expected: <System.Text.SBCSCodePageEncoding> But was: <System.Text.UnicodeEncoding>
+    MicrosoftWordParserTest (17 tests), 1 test failed: One or more child tests had errors
+      CanSaveText, Success
+      DocDoc, Success
+      Empty0SizeDoc, Success
+      EnglishLettersDoc, Success
+      HugeDoc, Ignored
+      NumbersDoc, Success
+      OpenedEmptyDoc, Success
+      RussianLettersDoc, Success
+      SpecialCharactersDoc, Success
+      WithColumnsDoc, Success
+      WithContentsDoc, Success
+      WithFootnotesDoc, Success
+      WithFormulasDoc, Failed:  Expected string length 20 but was 52. Strings differ at index 0. Expected: "x+an=k=0nnkxkan-k\r\r\n" But was: "\r
+      WithLinkDoc, Success
+      WithNumerationDoc, Success
+      WithPictureDoc, Success
+      WithTableDoc, Success
+    NpoiDocParserTest (17 tests), 4 tests failed: One or more child tests had errors
+      CanSaveText, Success
+      DocDoc, Failed: ICSharpCode.SharpZipLib.Zip.ZipException : Wrong Local header signature: 0xE011CFD0
+      Empty0SizeDoc, Success
+      EnglishLettersDoc, Success
+      HugeDoc, Success
+      NumbersDoc, Success
+      OpenedEmptyDoc, Success
+      RussianLettersDoc, Success
+      SpecialCharactersDoc, Success
+      WithColumnsDoc, Success
+      WithContentsDoc, Failed:  Expected string length 220 but was 0. Strings differ at index 0. Expected: "ОглавлениеВведите название главы (уровен
+      WithFootnotesDoc, Success
+      WithFormulasDoc, Failed:  Expected string length 17 but was 0. Strings differ at index 0. Expected: "x+an=k=0nnkxkan-k" But was: <string.Em
+      WithLinkDoc, Success
+      WithNumerationDoc, Success
+      WithPictureDoc, Success
+      WithTableDoc, Failed:  Expected string length 501 but was 265. Strings differ at index 0. Expected: "Based on Bioware's history, a "Dragon 
+    PdfBoxParserTest (15 tests), 1 test failed: One or more child tests had errors
+      CanSaveText, Success
+      EnglishLettersPdf, Success
+      HugePdf, Success
+      NumbersPdf, Success
+      OpenedEmptyPdf, Success
+      RussianLettersPdf, Success
+      SpecialCharactersPdf, Success
+      WithColumnsPdf, Success
+      WithContentsPdf, Success
+      WithFootnotesPdf, Success
+      WithFormulasPdf, Failed:  Expected string length 20 but was 53. Strings differ at index 0. Expected: "x+an=k=0nnkxkan-k \r\n" But was: " +
+      WithLinkPdf, Success
+      WithNumerationPdf, Success
+      WithPicturePdf, Success
+      WithTablePdf, Success
+    TextSharpPdfParserTest (15 tests), 4 tests failed: One or more child tests had errors
+      CanSaveText, Success
+      EnglishLettersPdf, Success
+      HugePdf, Success
+      NumbersPdf, Success
+      OpenedEmptyPdf, Success
+      RussianLettersPdf, Success
+      SpecialCharactersPdf, Success
+      WithColumnsPdf, Failed:  Expected string length 200 but was 217. Strings differ at index 8. Expected: "This is the film version of the Pulitz
+      WithContentsPdf, Success
+      WithFootnotesPdf, Failed:  Expected string length 60 but was 202. Strings differ at index 0. Expected: "One of the most iconic characters in po
+      WithFormulasPdf, Failed:  Expected string length 18 but was 46. Strings differ at index 0. Expected: "x+an=k=0nnkxkan-k " But was: "\n\n 
+      WithLinkPdf, Success
+      WithNumerationPdf, Success
+      WithPicturePdf, Success
+      WithTablePdf, Failed:  Expected string length 502 but was 515. Strings differ at index 0. Expected: "Based on Bioware's history, a "Dragon 
