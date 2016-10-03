@@ -1,0 +1,200 @@
+<!doctype html>
+<html>
+    <head>
+        
+
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<title>Расписание СПбГУ</title>
+<link href="//fonts.googleapis.com/css?family=Ubuntu" rel="stylesheet" />
+<link href="/Content/bootstrapcss?v=EfdvIp1Ge3BR9xHTMheNQhD94JARTqx1vMfGHGQ_lug1" rel="stylesheet"/>
+
+<script src="//api-maps.yandex.ru/2.1/?lang=ru" type="text/javascript"></script>
+<!--[if lt IE 9]>
+<script src="/Scripts/html5shiv.min.js"></script>
+
+<script src="/Scripts/respond.min.js"></script>
+
+<![endif]-->
+    </head>
+    <body> 
+        <nav role="navigation" class="navbar navbar-default navbar-fixed-top">
+            <div class="container">
+                <a href="/" class="navbar-back-button visible-xs-*">
+                    <i class="glyphicon glyphicon-chevron-left"></i>
+                </a>
+                <div class="locale-switcher">
+                    
+
+
+<form action="/Base/SetClientCultureCookie" method="post">    <fieldset>
+        <div class="control-group">
+            <div class="controls">
+                <label for="en-us" title="Switch to English">
+                    <input name="clientCultureName" id="en-us" value="en-us" type="radio"  />
+                    En
+                </label>
+            </div>
+        </div>
+        <div class="control-group">
+            <div class="controls">
+                <label for="ru" title="Переключить на Русский">
+                    <input name="clientCultureName" id="ru" value="ru" type="radio"         checked="checked"
+ />
+                    Ру
+                </label>
+            </div>
+        </div> 
+        <div class="control-group buttons">
+            <input type="submit" value="Submit" />  
+        </div>            
+    </fieldset>
+</form>
+                </div>
+                <div class="navbar-header" id="navbar-header">
+                    <a href="/" class="navbar-brand">Расписание СПбГУ</a>
+                </div>
+            </div>
+        </nav>
+        <div class="container">
+            
+
+<ol class="breadcrumb">
+            <li class="active">
+                Главная
+            </li>
+</ol>
+
+<h2>Расписания</h2>
+
+<div class="row">
+    <div class="col-sm-6" style="padding-left: 0">
+        <div class="panel panel-default">
+            <div class="panel-heading">Направления</div>
+            <ul class="list-group">
+                    <li class="list-group-item">
+                        <a href="/AGSM">Академическая гимназия</a>
+                    </li>
+                    <li class="list-group-item">
+                        <a href="/BIOL">Биология</a>
+                    </li>
+                    <li class="list-group-item">
+                        <a href="/ORIS">Востоковедение</a>
+                    </li>
+                    <li class="list-group-item">
+                        <a href="/JOUR">Журналистика, Прикладные коммуникации</a>
+                    </li>
+                    <li class="list-group-item">
+                        <a href="/ARTS">Искусства</a>
+                    </li>
+                    <li class="list-group-item">
+                        <a href="/HIST">История</a>
+                    </li>
+                    <li class="list-group-item">
+                        <a href="/SC">Колледж физической культуры и спорта, экономики и технологии</a>
+                    </li>
+                    <li class="list-group-item">
+                        <a href="/MATH">Математика, Механика</a>
+                    </li>
+                    <li class="list-group-item">
+                        <a href="/MEDI">Медицина</a>
+                    </li>
+                    <li class="list-group-item">
+                        <a href="/INTD">Междисциплинарные программы</a>
+                    </li>
+                    <li class="list-group-item">
+                        <a href="/INTR">Международные отношения</a>
+                    </li>
+                    <li class="list-group-item">
+                        <a href="/GSOM">Менеджмент</a>
+                    </li>
+                    <li class="list-group-item">
+                        <a href="/EARTH">Науки о Земле</a>
+                    </li>
+                    <li class="list-group-item">
+                        <a href="/POLS">Политология</a>
+                    </li>
+                    <li class="list-group-item">
+                        <a href="/AMCP">Процессы управления</a>
+                    </li>
+                    <li class="list-group-item">
+                        <a href="/PSYC">Психология</a>
+                    </li>
+                    <li class="list-group-item">
+                        <a href="/LIAS">Свободные искусства и науки</a>
+                    </li>
+                    <li class="list-group-item">
+                        <a href="/SOCL">Социология</a>
+                    </li>
+                    <li class="list-group-item">
+                        <a href="/DENT">Стоматология и медицинские технологии</a>
+                    </li>
+                    <li class="list-group-item">
+                        <a href="/PHYS">Физика</a>
+                    </li>
+                    <li class="list-group-item">
+                        <a href="/LETT">Филология</a>
+                    </li>
+                    <li class="list-group-item">
+                        <a href="/PHIL">Философия</a>
+                    </li>
+                    <li class="list-group-item">
+                        <a href="/CHEM">Химия</a>
+                    </li>
+                    <li class="list-group-item">
+                        <a href="/ECON">Экономика</a>
+                    </li>
+                    <li class="list-group-item">
+                        <a href="/LAWS">Юриспруденция итоговая аттестация</a>
+                    </li>
+                    <li class="list-group-item">
+                        <a href="/LAWSPRIMARY">Юриспруденция основное расписание</a>
+                    </li>
+            </ul>
+        </div>
+    </div>
+    <div class="col-sm-6" style="padding-right: 0">
+        <div class="panel panel-default">
+            <div class="panel-heading">Расписания преподавателей</div>
+            <ul class="list-group">
+                <li class="list-group-item">
+                    <a href="/EducatorEvents/Index">Поиск преподавателя</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+        <div class="col-sm-6" style="padding-right: 0">
+            <div class="panel panel-default">
+                <div class="panel-heading">Внеучебные мероприятия</div>
+                <ul class="list-group">
+                    <li class="list-group-item">
+                        <a href="/Events/Billboard">Афиша мероприятий</a>
+                    </li>
+                    <li class="list-group-item">
+                        <a href="/Events/Science">Научные мероприятия</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+            <div class="col-sm-6" style="padding-right: 0">
+            <div class="panel panel-default">
+                <div class="panel-heading">Физкультура</div>
+                <ul class="list-group">
+                        <li class="list-group-item">
+                            <a href="/Events/PhysTraining">Физкультура</a>
+                        </li>
+                </ul>
+            </div>
+        </div>
+</div>
+
+
+            <div id="xtracurModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+            </div>
+        </div>
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+        <script src="/bundles/all?v=IBlSrPm-1g2rcOuqhWIHk5GWjF-h1QxPBFj4pMPftIk1"></script>
+
+    </body>
+</html>
