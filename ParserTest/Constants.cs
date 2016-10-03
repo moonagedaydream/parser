@@ -39,6 +39,7 @@ namespace ParserTest
     public static string pathToEmptyDocText = Path.Combine(Environment.CurrentDirectory, @"ResultDocuments\", "Empty.txt");
     public static string pathToEmpty0SizeDoc = Path.Combine(Environment.CurrentDirectory, @"DocTest\", "Empty0Size.docx");
     public static string pathToEmpty0SizePdf = Path.Combine(Environment.CurrentDirectory, @"PdfTest\", "Empty0Size.pdf");
+    public static string pathToEmptyDocText2 = Path.Combine(Environment.CurrentDirectory, @"ResultDocuments\", "Empty2.txt");
 
     public static string pathToAppliedMathematicMainPageHtml = Path.Combine(Environment.CurrentDirectory, @"HtmlTest\", "AppliedMathematicMainPage.html");
 
@@ -48,10 +49,30 @@ namespace ParserTest
     public static string pathToEnglishLettersDoc = Path.Combine(Environment.CurrentDirectory, @"DocTest\", "EnglishLetters.docx");
     public static string pathToEnglishLettersPdf = Path.Combine(Environment.CurrentDirectory, @"PdfTest\", "EnglishLetters.pdf");
     public static string EnglishLettersExpectedResult = "ABCDEFGHIJKLMNOPQRSTUVWXYZ abcdefghijklmnopqrstuvwxyz";
-    
+    public static string EnglishTextExpectedResult = "Faculty of applied mathematics and control processes was established\nOctober 10, 1969, on the base of departments of the Mathematics and\nMechanics Faculty and Research Institute.\r\nFaculty of Applied Mathematics and Control Processes of Saint-Petersburg State University takes one leading positions among other faculties of this kind in universities of  Russian Federation. Graduates of the faculty are in-demand among employers not only in Russia, but also abroad.\r\nA large variety of professions.\r\nStudents' trade union organization helps with employment; organizes events (seminars, presentations, job fair) for employers; finds backers for events of the faculty  \r\nGraduates of the faculty usually take leading positions. They work in IT-companies, industry, develop business, pursue science, teach and  make serious scientific research.\r\nNews archive >>";
+    public static string falseEncodingInBodyExpectedResult = "23.09.2010\r\nВлад Мержевич";
+
+    public static string localLinksExpectedResult = "23.09.2010\r\nВлад Мержевич";
+
+    public static string pathToColumnAndNumerationHtml = Path.Combine(Environment.CurrentDirectory, @"HtmlTest\", "ColumnAndNumeration.html");
+    public static string unknownExpectedResult = "_";
+    public static string columnAndNumerationExpectedResult = "References ^ \"Captain America: Civil War (12A)\". British Board of Film Classification. April 18, 2016. Archived from the original on May 15, 2016. Retrieved April 18, 2016. ^ McMillian, Graeme (March 9, 2016). \"\'Captain America: Civil War\' Will Be the Longest Marvel Studios Film to Date\". The Hollywood Reporter. Archived from the original on March 9, 2016. Retrieved March 9, 2016.^ a b c \"Captain America: Civil War (2016)\". Box Office Mojo. Retrieved September 4, 2016.";
+
+    public static string pathToContentsHtml = Path.Combine(Environment.CurrentDirectory, @"HtmlTest\", "Contents.html");
+    public static string contentsExpectedResult = "Contents 1 Plot 2 Cast 3 Production 3.1 Development 3.2 Pre-production 3.3 Filming 3.4 Post-production";
+
+    public static string pathToEmptyTextAndLinksHtml = Path.Combine(Environment.CurrentDirectory, @"HtmlTest\", "EmptyTextAndLinks.html");
+    public static string pathToEnglishLettersHtml = Path.Combine(Environment.CurrentDirectory, @"HtmlTest\", "EnglishLetters.html");
+    public static string pathToEnglishTextHtml = Path.Combine(Environment.CurrentDirectory, @"HtmlTest\", "EnglishText.html");
+
+    public static string pathToFalseEncodingInBodyHtml = Path.Combine(Environment.CurrentDirectory, @"HtmlTest\", "FalseEncodingInBody.html");
+    public static string pathToLocalLinksHtml = Path.Combine(Environment.CurrentDirectory, @"HtmlTest\", "LocalLinks.html");
+
+
     public static string pathToHugeDocumentDoc = Path.Combine(Environment.CurrentDirectory, @"DocTest\", "HugeDocument.docx");
     public static string pathToHugeDocumentPdf = Path.Combine(Environment.CurrentDirectory, @"PdfTest\", "HugeDocument.pdf");
-    
+    public static string pathToHugeDocumentHtml = Path.Combine(Environment.CurrentDirectory, @"HtmlTest\", "HugeDocument.html");
+
     public static string pathToNumbersDoc = Path.Combine(Environment.CurrentDirectory, @"DocTest\", "Numbers.docx");
     public static string pathToNumbersPdf = Path.Combine(Environment.CurrentDirectory, @"PdfTest\", "Numbers.pdf");
     public static string numbersExpectedResult = "0123456789";
@@ -123,5 +144,6 @@ namespace ParserTest
     public static string microsoftWordParserEnding = "\r\r\n";
     public static string pdfBoxParserEnding = " \r\n";
     public static string textSharpPdfParserEnding = " ";
+    public static string htmlAngleSharpParserEnding = "\r\n";
   }
 }

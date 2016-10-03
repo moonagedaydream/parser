@@ -20,185 +20,130 @@ namespace ParserTest
     public void CanSaveText()
     {
       File.Delete(Constants.pathToEmptyDocText);
-      Parser parser = new AngleSharpParser();
+      File.Delete(Constants.pathToEmptyDocText2);
+      HtmlParser parser = new AngleSharpParser();
       parser.Parse(Constants.pathToAppliedMathematicMainPageHtml);
       parser.SaveTextToFile(Constants.pathToEmptyDocText);
-
+      parser.SaveAllLinksToFile(Constants.pathToEmptyDocText2);
       Assert.IsTrue(File.Exists(Constants.pathToEmptyDocText), "TXT file with parsed text was not created.");
+      Assert.IsTrue(File.Exists(Constants.pathToEmptyDocText2), "TXT file with links was not created.");
+
     }
 
     /// <summary>
-    /// Parse empty pdf with size !=0.
+    /// Parse html page with Chinese symbols.
     /// </summary>
     [Test]
     public void ChineseSymbolsHtml()
     {
-      Parser parser = new AngleSharpParser();
+      HtmlParser parser = new AngleSharpParser();
       parser.Parse(Constants.pathToChineseSymbolsHtml);
-      parser.SaveTextToFile(Constants.pathToEmptyDocText);
+      
       Assert.AreEqual(Constants.emptyDocExpectedResult, parser.Text);
     }
 
     /// <summary>
-    /// Parse pdf with all English letters.
+    /// Parse html with columns and numeration.
     /// </summary>
     [Test]
-    public void EnglishLettersPdf()
+    public void ColumnsAndNumerationHtml()
     {
-      Parser parser = new AngleSharpParser();
-      parser.Parse(Constants.pathToEnglishLettersPdf);
-
-      Assert.AreEqual(Constants.EnglishLettersExpectedResult, parser.Text);
+      HtmlParser parser = new AngleSharpParser();
+      parser.Parse(Constants.pathToColumnAndNumerationHtml);
+      parser.SaveAllLinksToFile(Constants.pathToEmptyDocText2);
+      //Assert.AreEqual(Constants.columnAndNumerationExpectedResult, parser.Text);
+      CollectionAssert.AreEqual(new List<string>(), parser.Links);
     }
 
     /// <summary>
-    /// Parse doc with all numbers.
+    /// Parse html with contents.
     /// </summary>
     [Test]
-    public void NumbersPdf()
+    public void ContentsHtml()
     {
-      Parser parser = new AngleSharpParser();
-      parser.Parse(Constants.pathToNumbersPdf);
+      HtmlParser parser = new AngleSharpParser();
+      parser.Parse(Constants.pathToContentsHtml);
 
-      Assert.AreEqual(Constants.numbersExpectedResult, parser.Text);
+      Assert.AreEqual(Constants.contentsExpectedResult, parser.Text);
     }
 
     /// <summary>
-    /// Parse doc with all Russian letters.
+    /// Parse html with no text.
     /// </summary>
     [Test]
-    public void RussianLettersPdf()
+    public void NoTextAndLinksHtml()
     {
-      Parser parser = new AngleSharpParser();
-      parser.Parse(Constants.pathToRussianLettersPdf);
+      HtmlParser parser = new AngleSharpParser();
+      parser.Parse(Constants.pathToEmptyTextAndLinksHtml);
 
-      Assert.AreEqual(Constants.RussianLettersExpectedResult, parser.Text);
+      Assert.AreEqual(String.Empty, parser.Text);
+      CollectionAssert.AreEqual(new List<string>(), parser.Links);
     }
 
     /// <summary>
-    /// Parse doc with special characters.
+    /// Parse html with English letters.
     /// </summary>
     [Test]
-    public void SpecialCharactersPdf()
+    public void EnglishLettersHtml()
     {
-      Parser parser = new AngleSharpParser();
-      parser.Parse(Constants.pathToSpecialCharactersPdf);
-      
-      Assert.AreEqual(Constants.specialCharactersExpectedResultPdf, parser.Text);
+      HtmlParser parser = new AngleSharpParser();
+      parser.Parse(Constants.pathToEnglishLettersHtml);
+
+      Assert.AreEqual(Constants.EnglishLettersExpectedResult + Constants.htmlAngleSharpParserEnding, parser.Text);
     }
 
     /// <summary>
-    /// Parse doc with columns.
+    /// Parse html with English letters.
     /// </summary>
     [Test]
-    public void WithColumnsPdf()
+    public void EnglishTextHtml()
     {
-      Parser parser = new AngleSharpParser();
-      parser.Parse(Constants.pathToWithColumnsPdf);
-      
-      Assert.AreEqual(Constants.withColumnsExpectedResultPdf, parser.Text);
+      HtmlParser parser = new AngleSharpParser();
+      parser.Parse(Constants.pathToEnglishTextHtml);
+
+      Assert.AreEqual(Constants.EnglishTextExpectedResult + Constants.htmlAngleSharpParserEnding, parser.Text);
     }
 
     /// <summary>
-    /// Parse doc with links.
+    /// Parse html with false encoding in body.
     /// </summary>
     [Test]
-    public void WithLinkPdf()
+    public void FalseEncodingInBodyHtml()
     {
-      Parser parser = new AngleSharpParser();
-      parser.Parse(Constants.pathToWithLinkPdf);
-      
-      Assert.AreEqual(Constants.withLinkExpectedResulPdf2, parser.Text);
+      HtmlParser parser = new AngleSharpParser();
+      parser.Parse(Constants.pathToFalseEncodingInBodyHtml);
+
+      Assert.AreEqual(Constants.falseEncodingInBodyExpectedResult + Constants.htmlAngleSharpParserEnding, parser.Text);
     }
 
     /// <summary>
-    /// Parse doc with contents.
+    /// Parse html with local links.
     /// </summary>
     [Test]
-    public void WithContentsPdf()
+    public void LocalLinksHtml()
     {
-      Parser parser = new AngleSharpParser();
-      parser.Parse(Constants.pathToWithContentsPdf);
-      
-      Assert.AreEqual(Constants.withContentsExpectedResultPdf2, parser.Text);
+      HtmlParser parser = new AngleSharpParser();
+      parser.Parse(Constants.pathToLocalLinksHtml);
+      parser.SaveTextToFile(Constants.pathToEmptyDocText);
+      CollectionAssert.AreEqual(new List<string>(), parser.Links);
     }
 
     /// <summary>
-    /// Parse doc with footnotes.
+    /// Parse huge html.
     /// </summary>
     [Test]
-    public void WithFootnotesPdf()
-    {
-      Parser parser = new AngleSharpParser();
-      parser.Parse(Constants.pathToWithFootnotesPdf);
-      
-      Assert.AreEqual(Constants.withFootnotesResultPdf, parser.Text);
-    }
-
-    /// <summary>
-    /// Parse doc with formulas.
-    /// </summary>
-    [Test]
-    public void WithFormulasPdf()
-    {
-      Parser parser = new AngleSharpParser();
-      parser.Parse(Constants.pathToWithFormulasPdf);
-
-      Assert.AreEqual(Constants.withFormulasExpectedResult1, parser.Text);
-    }
-
-    /// <summary>
-    /// Parse doc with numeration.
-    /// </summary>
-    [Test]
-    public void WithNumerationPdf()
-    {
-      Parser parser = new AngleSharpParser();
-      parser.Parse(Constants.pathToWithNumerationPdf);
-      
-      Assert.AreEqual(Constants.withNumerationExpectedResultPdf2, parser.Text);
-    }
-
-    /// <summary>
-    /// Parse doc with picture.
-    /// </summary>
-    [Test]
-    public void WithPicturePdf()
-    {
-      Parser parser = new AngleSharpParser();
-      parser.Parse(Constants.pathToWithPicturePdf);
-      
-      Assert.AreEqual(Constants.withPictureExpectedResultPdf2, parser.Text);
-    }
-
-    /// <summary>
-    /// Parse doc with table.
-    /// </summary>
-    [Test]
-    public void WithTablePdf()
-    {
-      Parser parser = new AngleSharpParser();
-      parser.Parse(Constants.pathToWithTablePdf);
-      
-      Assert.AreEqual(Constants.withTableExpectedResultPdf, parser.Text);
-    }
-
-    /// <summary>
-    /// Parse huge doc.
-    /// </summary>
-    [Test]
-    public void HugePdf()
+    public void HugeHtml()
     {
       File.Delete(Constants.pathToEmptyDocText);
       Stopwatch stopwatch = new Stopwatch();
       stopwatch.Start();
 
-      Parser parser = new AngleSharpParser();
-      parser.Parse(Constants.pathToHugeDocumentPdf);
+      HtmlParser parser = new AngleSharpParser();
+      parser.Parse(Constants.pathToHugeDocumentHtml);
       parser.SaveTextToFile(Constants.pathToEmptyDocText);
       stopwatch.Stop();
 
-      Assert.Less(stopwatch.Elapsed, TimeSpan.FromSeconds(20));
+      Assert.Less(stopwatch.Elapsed, TimeSpan.FromSeconds(2));
     }
     #endregion
   }
