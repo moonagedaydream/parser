@@ -24,8 +24,7 @@ namespace ParserLibrary.HtmlParsers {
 
             Uri uri;
 
-            if (link.StartsWith("http")
-                && Uri.TryCreate(link, UriKind.RelativeOrAbsolute, out uri)) {
+            if (Uri.TryCreate(link, UriKind.RelativeOrAbsolute, out uri)) {
 
                 string uriString = uri.ToString();
 
