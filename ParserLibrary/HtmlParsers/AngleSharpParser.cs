@@ -16,6 +16,8 @@ namespace ParserLibrary.HtmlParsers {
 
             CheckFileType();
 
+            GetEncoding();
+
             try {
                 IHtmlDocument  document =
                     new AngleSharp.Parser.Html.HtmlParser().Parse(File.ReadAllText(ParsedFile));

@@ -9,12 +9,19 @@ namespace ParserLibrary.HtmlParsers {
 
         public IList<string> Links;
 
+        public Encoding Encoding;
+
         protected HtmlParser()
             : base(ParserType.HtmlParser) {
             Links = new List<string>();
         }
 
         protected void TryAddLink(string link) {
+
+            if (link == null) {
+                return;
+            }
+
             Uri uri;
 
             if (link.StartsWith("http")
@@ -59,20 +66,20 @@ namespace ParserLibrary.HtmlParsers {
 
         }
 
-        protected Encoding GetEncoding() {
+        protected void GetEncoding() {
             try {
                 using (FileStream fs = File.OpenRead(ParsedFile)) {
                     Ude.CharsetDetector cdet = new Ude.CharsetDetector();
                     cdet.Feed(fs);
                     cdet.DataEnd();
                     if (cdet.Charset != null) {
-                        return Encoding.GetEncoding(cdet.Charset);
+                        Encoding = Encoding.GetEncoding(cdet.Charset);
                     }
                 }
             } catch (Exception) {
-                return Encoding.Unicode;
+                Encoding = Encoding.Unicode;
             }
-            return Encoding.Unicode;
+            Encoding = Encoding.Unicode;
         }
 
         public void SaveAllLinksToFile(string filePath) {

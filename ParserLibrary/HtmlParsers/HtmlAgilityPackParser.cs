@@ -16,10 +16,12 @@ namespace ParserLibrary.HtmlParsers {
 
             CheckFileType();
 
+            GetEncoding();
+
             try {
                 HtmlWeb htmlWeb = new HtmlWeb();
 
-                htmlWeb.OverrideEncoding = GetEncoding();
+                htmlWeb.OverrideEncoding = Encoding;
 
                 HtmlDocument document = htmlWeb.Load(ParsedFile);
 

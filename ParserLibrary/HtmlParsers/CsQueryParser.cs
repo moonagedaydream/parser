@@ -12,6 +12,8 @@ namespace ParserLibrary.HtmlParsers {
 
             CheckFileType();
 
+            GetEncoding();
+
             try {
                 StringBuilder text = new StringBuilder();
 
