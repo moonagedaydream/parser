@@ -70,6 +70,7 @@
     <None Include="DocTest\WithFootnotes.docx">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
+    <None Include="ResultDocuments\Unit tests.xlsx" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="NUnit\" />
