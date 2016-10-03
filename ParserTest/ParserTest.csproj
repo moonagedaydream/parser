@@ -44,6 +44,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Constants.cs" />
+    <Compile Include="AngleSharpParserTest.cs" />
     <Compile Include="TextSharpPdfParserTest.cs" />
     <Compile Include="PdfBoxParserTest.cs" />
     <Compile Include="NpoiDocParserTest.cs" />

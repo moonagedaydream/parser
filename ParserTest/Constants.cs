@@ -33,10 +33,14 @@ namespace ParserTest
     public static string pathToEmptyDoc = Path.Combine(Environment.CurrentDirectory, @"DocTest\", "Empty.docx");
     public static string pathToEmptyPdf = Path.Combine(Environment.CurrentDirectory, @"PdfTest\", "Empty.pdf");
     public static string emptyDocExpectedResult = string.Empty;
-    
+
+    public static string pathToChineseSymbolsHtml = Path.Combine(Environment.CurrentDirectory, @"HtmlTest\", "ChinishSymbols.html");
+
     public static string pathToEmptyDocText = Path.Combine(Environment.CurrentDirectory, @"ResultDocuments\", "Empty.txt");
     public static string pathToEmpty0SizeDoc = Path.Combine(Environment.CurrentDirectory, @"DocTest\", "Empty0Size.docx");
     public static string pathToEmpty0SizePdf = Path.Combine(Environment.CurrentDirectory, @"PdfTest\", "Empty0Size.pdf");
+
+    public static string pathToAppliedMathematicMainPageHtml = Path.Combine(Environment.CurrentDirectory, @"HtmlTest\", "AppliedMathematicMainPage.html");
 
     public static string pathToDocDoc = Path.Combine(Environment.CurrentDirectory, @"DocTest\", "Doc.doc");
     public static string docDocExpectedResult = "Test";
