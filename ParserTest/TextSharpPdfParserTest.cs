@@ -179,7 +179,7 @@ namespace ParserTest
     {
       Parser parser = new TextSharpPdfParser();
       parser.Parse(Constants.pathToWithTablePdf);
-      
+      parser.SaveTextToFile(Constants.pathToEmptyDocText);
       Assert.AreEqual(Constants.withTableExpectedResult + Constants.textSharpPdfParserEnding, parser.Text);
     }
 

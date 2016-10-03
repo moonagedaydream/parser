@@ -108,7 +108,7 @@ namespace ParserTest
       Parser parser = new PdfBoxParser();
       parser.Parse(Constants.pathToWithLinkPdf);
       
-      Assert.AreEqual(Constants.withLinkExpectedResult + Constants.pdfBoxParserEnding, parser.Text);
+      Assert.AreEqual(Constants.withLinkExpectedResulPdf2 + Constants.pdfBoxParserEnding, parser.Text);
     }
 
     /// <summary>
@@ -131,7 +131,7 @@ namespace ParserTest
     {
       Parser parser = new PdfBoxParser();
       parser.Parse(Constants.pathToWithFootnotesPdf);
-      parser.SaveTextToFile(Constants.pathToEmptyDocText);
+      
       Assert.AreEqual(Constants.withFootnotesResultPdf + Constants.pdfBoxParserEnding, parser.Text);
     }
 
@@ -155,8 +155,8 @@ namespace ParserTest
     {
       Parser parser = new PdfBoxParser();
       parser.Parse(Constants.pathToWithNumerationPdf);
-
-      Assert.AreEqual(Constants.withNumerationExpectedResult1 + Constants.pdfBoxParserEnding, parser.Text);
+      
+      Assert.AreEqual(Constants.withNumerationExpectedResultPdf2 + Constants.pdfBoxParserEnding, parser.Text);
     }
 
     /// <summary>
@@ -167,8 +167,8 @@ namespace ParserTest
     {
       Parser parser = new PdfBoxParser();
       parser.Parse(Constants.pathToWithPicturePdf);
-
-      Assert.AreEqual(Constants.withPictureExpectedResult + Constants.pdfBoxParserEnding, parser.Text);
+      
+      Assert.AreEqual(Constants.withPictureExpectedResultPdf2 + Constants.pdfBoxParserEnding, parser.Text);
     }
 
     /// <summary>
@@ -179,8 +179,8 @@ namespace ParserTest
     {
       Parser parser = new PdfBoxParser();
       parser.Parse(Constants.pathToWithTablePdf);
-
-      Assert.AreEqual(Constants.withTableExpectedResult + Constants.pdfBoxParserEnding, parser.Text);
+      
+      Assert.AreEqual(Constants.withTableExpectedResultPdf + Constants.pdfBoxParserEnding, parser.Text);
     }
 
     /// <summary>

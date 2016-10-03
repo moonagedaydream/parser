@@ -84,7 +84,7 @@ namespace ParserTest
     public static string withFootnotesResult3 = "One of the \u0002most iconic characters in popular \u0002culture,[3][4]";
 
     public static string withFootnotesResultPdf =
-      "One of the \r\ni\r\nmost iconic characters in popular \r\n1\r\nculture,[3][4] \r\n\r\ni\r\nNew \r\n\r\n1\r\ntest \r\n";
+      "One of the \r\ni\r\nmost iconic characters in popular \r\n1\r\nculture,[3][4] \r\n                                                          \r\ni\r\n New \r\n                                                          \r\n1\r\n test";
 
     public static string pathToWithFormulasDoc = Path.Combine(Environment.CurrentDirectory, @"DocTest\", "WithFormulas.docx");
     public static string pathToWithFormulasPdf = Path.Combine(Environment.CurrentDirectory, @"PdfTest\", "WithFormulas.pdf");
@@ -95,21 +95,26 @@ namespace ParserTest
     public static string withNumerationExpectedResult1 = "Extreme JusticeJustice League 3000Justice League AntarcticaJustice League DarkJustice League EliteJustice League EuropeJustice League InternationalJustice League Task ForceJustice League UnitedJustice LeaguesSuper BuddiesSuper FriendsShadowpactYoung Justice";
     public static string withNumerationExpectedResult2 = "Extreme Justice\r\r\nJustice League 3000\r\r\nJustice League Antarctica\r\r\nJustice League Dark\r\r\nJustice League Elite\r\r\nJustice League Europe\r\r\nJustice League International\r\r\nJustice League Task Force\r\r\nJustice League United\r\r\nJustice Leagues\r\r\nSuper Buddies\r\r\nSuper Friends\r\r\nShadowpact\r\r\nYoung Justice";
     public static string withNumerationExpectedResultPdf = " Extreme Justice \n Justice League 3000 \n Justice League Antarctica \n1) Justice League Dark \ni) Justice League Elite \n1) Justice League Europe \n2) Justice League International \na) Justice League Task Force \n Justice League United \nII. Justice Leagues \n1. Super Buddies \n Super Friends \n2. Shadowpact \n3. Young Justice";
+    public static string withNumerationExpectedResultPdf2 = " Extreme Justice \r\n Justice League 3000 \r\n Justice League Antarctica \r\n1) Justice League Dark \r\ni) Justice League Elite \r\n1) Justice League Europe \r\n2) Justice League International \r\na) Justice League Task Force \r\n Justice League United \r\nII. Justice Leagues \r\n1. Super Buddies \r\n Super Friends \r\n2. Shadowpact \r\n3. Young Justice";
 
     public static string pathToWithPictureDoc = Path.Combine(Environment.CurrentDirectory, @"DocTest\", "WithPicture.docx");
     public static string pathToWithPicturePdf = Path.Combine(Environment.CurrentDirectory, @"PdfTest\", "WithPicture.pdf");
     public static string withPictureExpectedResult = " Dragon Age is a high fantasy role-playing video game series created by BioWare. The first game, Dragon Age: Origins, was released in 2009. Dragon Age II, a sequel to Origins, was released in March 2011.";
     public static string withPictureExpectedResultPdf = " Dragon Age is a high fantasy role-playing video game series created by \nBioWare. The first \ngame, Dragon Age: \nOrigins, was released in \n2009. Dragon Age II, a \nsequel to Origins, was \nreleased in March 2011. \n";
+    public static string withPictureExpectedResultPdf2 = " Dragon Age is a high fantasy role-playing video game series created by \r\nBioWare. The first \r\ngame, Dragon Age: \r\nOrigins, was released in \r\n2009. Dragon Age II, a \r\nsequel to Origins, was \r\nreleased in March 2011. \r\n";
 
     public static string pathToWithTableDoc = Path.Combine(Environment.CurrentDirectory, @"DocTest\", "WithTable.docx");
     public static string pathToWithTablePdf = Path.Combine(Environment.CurrentDirectory, @"PdfTest\", "WithTable.pdf");
     public static string withTableExpectedResult = "Based on Bioware's history, a \"Dragon Age\" game usually drops after the last DLC of the \"Mass Effect\" game before it. The only exception is when Bioware released \"Dragon Age: Origins - Awakening\" before \"Mass Effect 2\" finished its run.Eurogamer has also noted that with \"Mass Effect: Andromeda\" entering its final production stages, and with both Laidlaw and Weekes not working on Bioware's secret new IP, there is a huge possibility that Kennedy was taken onboard for a \"Dragon Age\" related project.";
     public static string withTableExpectedResult2 = "Based on Bioware's history, a \"Dragon Age\" \r\a\r\ngame usually drops after the last DLC of the \"Mass Effect\" \r\a\r\n\r\a\r\ngame before it. \r\a\r\nThe only exception is when Bioware released \"Dragon Age: Origins - Awakening\" before \"Mass Effect 2\" finished its run.\r\a\r\n\r\a\r\nEurogamer has also noted that with \"Mass Effect: Andromeda\" entering its final production stages, and with both Laidlaw and Weekes not working on Bioware's secret new IP, there is a huge possibility that Kennedy was taken onboard for a \"Dragon Age\" related project.";
+    public static string withTableExpectedResultPdf = "Eurogamer has also noted that with \"Mass Effect: Andromeda\" entering its final \r\nproduction stages, and with both Laidlaw and Weekes not working on Bioware's \r\nsecret new IP, there is a huge possibility that Kennedy was taken onboard for a \r\n\"Dragon Age\" related project. \r\nBased on Bioware's history, a \"Dragon \r\nAge\"  \r\ngame usually drops after the last DLC of \r\nthe \"Mass Effect\"  \r\ngame before it.  The only exception is when Bioware \r\nreleased \"Dragon Age: Origins - \r\nAwakening\" before \"Mass Effect 2\" \r\nfinished its run.";
 
     public static string pathToWithLinkDoc = Path.Combine(Environment.CurrentDirectory, @"DocTest\", "WithLink.docx");
     public static string pathToWithLinkPdf = Path.Combine(Environment.CurrentDirectory, @"PdfTest\", "WithLink.pdf");
     public static string withLinkExpectedResult = "The Joker is a fictional supervillain created by Bill Finger, Bob Kane,";
     public static string withLinkExpectedResulPdf = "The Joker is a fictional supervillain created \nby Bill Finger, Bob Kane,";
+    public static string withLinkExpectedResulPdf2 = "The Joker is a fictional supervillain created \r\nby Bill Finger, Bob Kane,";
+
 
     public static string microsoftWordParserEnding = "\r\r\n";
     public static string pdfBoxParserEnding = " \r\n";
