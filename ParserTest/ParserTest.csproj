@@ -43,6 +43,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="HtmlAgilityPackParserTest.cs" />
+    <Compile Include="CsQueryParserTest.cs" />
     <Compile Include="Constants.cs" />
     <Compile Include="AngleSharpParserTest.cs" />
     <Compile Include="TextSharpPdfParserTest.cs" />
