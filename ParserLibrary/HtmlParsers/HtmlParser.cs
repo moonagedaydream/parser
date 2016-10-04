@@ -78,7 +78,9 @@ namespace ParserLibrary.HtmlParsers {
             } catch (Exception) {
                 Encoding = Encoding.Unicode;
             }
-            Encoding = Encoding.Unicode;
+            if (Encoding == null) {
+                Encoding = Encoding.Unicode;
+            }
         }
 
         public void SaveAllLinksToFile(string filePath) {
