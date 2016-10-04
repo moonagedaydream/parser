@@ -179,19 +179,6 @@ namespace ParserTest
     /// Parse html with special characters.
     /// </summary>
     [Test]
-    [Ignore("Ignore special characters")]
-    public void SpecialCharactersTextHtml()
-    {
-      HtmlParser parser = new CsQueryParser();
-      parser.Parse(Constants.pathToSpecialCharactersHtml);
-      
-      Assert.AreEqual(Constants.specialCharactersExpectedResult, parser.Text);
-    }
-
-    /// <summary>
-    /// Parse html with special characters.
-    /// </summary>
-    [Test]
     public void Windows1251EncodingHtml()
     {
       HtmlParser parser = new CsQueryParser();

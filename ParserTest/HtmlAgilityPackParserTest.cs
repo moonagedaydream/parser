@@ -100,7 +100,7 @@ namespace ParserTest
       HtmlParser parser = new HtmlAgilityPackParser();
       parser.Parse(Constants.pathToEnglishTextHtml);
 
-      Assert.AreEqual(Constants.EnglishTextExpectedResult + Constants.htmlAngleSharpParserEnding, parser.Text);
+      Assert.AreEqual(Constants.EnglishTextExpectedResult2 + Constants.htmlAngleSharpParserEnding, parser.Text);
     }
 
     /// <summary>
@@ -173,19 +173,6 @@ namespace ParserTest
       parser.Parse(Constants.pathToRussianLettersHtml);
 
       Assert.AreEqual(Constants.RussianLettersExpectedResult + Constants.htmlAngleSharpParserEnding, parser.Text);
-    }
-
-    /// <summary>
-    /// Parse html with special characters.
-    /// </summary>
-    [Test]
-    [Ignore("Ignore special characters")]
-    public void SpecialCharactersTextHtml()
-    {
-      HtmlParser parser = new HtmlAgilityPackParser();
-      parser.Parse(Constants.pathToSpecialCharactersHtml);
-      
-      Assert.AreEqual(Constants.specialCharactersExpectedResult + Constants.htmlAngleSharpParserEnding, parser.Text);
     }
 
     /// <summary>
