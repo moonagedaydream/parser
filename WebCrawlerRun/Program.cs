@@ -28,7 +28,7 @@ namespace WebCrawlerRun
         }
         );
 
-        WebCrawler crawler = new AbotWebCrawler();
+        WebCrawler crawler = new NCrawler();
         crawler.Crawl(cancellationTokenSource, "http://www.apmath.spbu.ru/ru/");
 
       }

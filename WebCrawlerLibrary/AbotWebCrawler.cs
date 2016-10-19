@@ -73,7 +73,5 @@ namespace WebCrawlerLibrary
 
         log.Info("=====================>>" + String.Join(", ", this.CrawledPages));
       }
-
-
     }
 }
