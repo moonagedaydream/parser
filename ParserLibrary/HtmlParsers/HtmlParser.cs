@@ -83,6 +83,29 @@ namespace ParserLibrary.HtmlParsers {
             }
         }
 
+        public static Encoding GetEncoding(byte[] byteArray)
+        {
+          Encoding encoding = null;
+          try
+          {
+            using (Stream stream = new MemoryStream(byteArray))
+            {
+              var cdet = new Ude.CharsetDetector();
+              cdet.Feed(stream);
+              cdet.DataEnd();
+              if (cdet.Charset != null)
+              {
+                encoding = Encoding.GetEncoding(cdet.Charset);
+              }
+            }
+          }
+          catch (Exception)
+          {
+            encoding = Encoding.Unicode;
+          }
+          return encoding ?? (Encoding.Unicode);
+        }
+
         public void SaveAllLinksToFile(string filePath) {
             if (Status != ParsingStatus.Completed) {
                 throw new InvalidOperationException(
