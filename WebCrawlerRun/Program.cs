@@ -29,19 +29,9 @@ namespace WebCrawlerRun
           }
         }
         );
-        var options =
-          new CrawlerOptions
-          {
-            DownloadUri = new Uri(@"http://spbu.ru/"),
-            DestinationFolderPath = new DirectoryInfo(@"C:\temp\WebCrawlerPages")
-          };
 
-        var crawler = new PagesDownloader(options);
-
-        crawler.Process();
-
-        //WebCrawler crawler = new NCrawler();
-        //crawler.Crawl(cancellationTokenSource, "http://www.apmath.spbu.ru/ru/");
+        WebCrawler crawler = new SpecializedWebCrawler();
+        crawler.Crawl(@"http://spbu.ru/");
       }
       catch (Exception e)
       {

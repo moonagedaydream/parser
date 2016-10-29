@@ -1,31 +1,40 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+using System.IO;
 using System.Threading;
-using System.Threading.Tasks;
 using log4net;
 using log4net.Config;
+using WebCrawlerLibrary.SpecializedWebCrawlerHelper;
 
 namespace WebCrawlerLibrary
 {
-  class SpecializedWebCrawler : WebCrawler
+  public class SpecializedWebCrawler : WebCrawler
   {
-    private static readonly ILog log = LogManager.GetLogger("NCrawler");
+    private static readonly ILog log = LogManager.GetLogger("WebCrawler");
 
     public SpecializedWebCrawler()
       : base()
       {
         XmlConfigurator.Configure();
-        log.Debug("Crate Specialized Web Crawler.");
-
+        log.Debug("Create Specialized Web Crawler.");
       }
+
+    public override void Crawl(string startUri)
+    {
+      var options =
+         new CrawlerOptions
+         {
+           DownloadUri = new Uri(startUri),
+           DestinationFolderPath = new DirectoryInfo(@"C:\temp\WebCrawlerPages")
+         };
+
+      var crawler = new PagesDownloader(options);
+
+      crawler.Process();
+    }
 
       public override void Crawl(CancellationTokenSource cancellationTokenSource, string startUri)
       {
-        //CrawlResult result = crawler.Crawl(new Uri(startUri), cancellationTokenSource);
-
-        log.Info("=====================>>" + String.Join(", ", this.CrawledPages));
+        Crawl(startUri);
       }
   }
 }

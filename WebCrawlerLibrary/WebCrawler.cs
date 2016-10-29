@@ -12,6 +12,9 @@ namespace WebCrawlerLibrary
     // Run crawler.
     public abstract void Crawl(CancellationTokenSource cancellationTokenSource, string startUri);
 
+    // Run crawler.
+    public abstract void Crawl(string startUri);
+
     // Processed pages.
     public List<string> CrawledPages = new List<string>();
   }

@@ -78,21 +78,24 @@ namespace WebCrawlerLibrary
         
       }
 
-      public override void Crawl(CancellationTokenSource cancellationTokenSource, string startUri)
+      public override void Crawl(string startUri)
       {
-        //crawler = new Crawler(new Uri(startUri));
-        log.Info("=====================>>1" + String.Join(", ", this.CrawledPages));
         crawler = new Crawler(new Uri(startUri),
         new HtmlDocumentProcessor(), // Process html
         new DumperStep())
-				{
-					// Custom step to visualize crawl
-					MaximumThreadCount = 2,
-					MaximumCrawlDepth = 10
-				};
-        log.Info("=====================>>2" + String.Join(", ", this.CrawledPages));
+        {
+          // Custom step to visualize crawl
+          MaximumThreadCount = 2,
+          MaximumCrawlDepth = 10
+        };
         crawler.Crawl();
-        log.Info("=====================>>" + String.Join(", ", this.CrawledPages));
       }
+
+      public override void Crawl(CancellationTokenSource cancellationTokenSource, string startUri)
+      {
+        Crawl(startUri);
+      }
+
+      
     }
 }

@@ -67,6 +67,13 @@ namespace WebCrawlerLibrary
         crawler.PageLinksCrawlDisallowedAsync += crawler_PageLinksCrawlDisallowed;
       }
 
+      public override void Crawl(string startUri)
+      {
+        CrawlResult result = crawler.Crawl(new Uri(startUri));
+
+        log.Info("=====================>>" + String.Join(", ", this.CrawledPages));
+      }
+
       public override void Crawl(CancellationTokenSource cancellationTokenSource, string startUri)
       {
         CrawlResult result = crawler.Crawl(new Uri(startUri), cancellationTokenSource);
