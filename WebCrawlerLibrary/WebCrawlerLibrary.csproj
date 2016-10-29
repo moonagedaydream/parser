@@ -110,6 +110,9 @@
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
+    <None Include="SpecializedWebCrawlerDocumentation\SpecializedWebCrawlerDocumentation.docx">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
     <None Include="SpecializedWebCrawlerHelper\ClassDiagram.cd" />
   </ItemGroup>
   <ItemGroup>

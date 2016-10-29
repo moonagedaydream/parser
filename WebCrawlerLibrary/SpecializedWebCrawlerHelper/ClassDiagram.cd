@@ -29,14 +29,14 @@
     </TypeIdentifier>
   </Class>
   <Class Name="WebCrawlerLibrary.SpecializedWebCrawlerHelper.CrawlerOptions" Collapsed="true">
-    <Position X="10" Y="1" Width="1.5" />
+    <Position X="9.75" Y="3.75" Width="2.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAgAACAICAAAAAAAAAgAIAAAAAAAAAI=</HashCode>
       <FileName>SpecializedWebCrawlerHelper\CrawlerOptions.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="WebCrawlerLibrary.SpecializedWebCrawlerHelper.DownloadedPageInfo" Collapsed="true">
-    <Position X="15.75" Y="3" Width="1.5" />
+    <Position X="15.5" Y="5.5" Width="2.5" />
     <TypeIdentifier>
       <HashCode>AAAAgAAAAQCAAAEAhAAACAAAAAAAAACAAQAAggEAgIA=</HashCode>
       <FileName>SpecializedWebCrawlerHelper\DownloadedPageInfo.cs</FileName>
@@ -44,14 +44,14 @@
     <Lollipop Position="0.2" />
   </Class>
   <Class Name="WebCrawlerLibrary.SpecializedWebCrawlerHelper.LinkInfo" Collapsed="true">
-    <Position X="15.75" Y="1" Width="1.5" />
+    <Position X="16" Y="4" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AEAAAAAAAAAAAAAAAAAACAAAAAAIAAAACAAAAAAAAAA=</HashCode>
       <FileName>SpecializedWebCrawlerHelper\LinkInfo.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="WebCrawlerLibrary.SpecializedWebCrawlerHelper.PagesDownloader">
-    <Position X="9.5" Y="3" Width="4.5" />
+  <Class Name="WebCrawlerLibrary.SpecializedWebCrawlerHelper.PagesDownloader" Collapsed="true">
+    <Position X="9.75" Y="5.25" Width="4.5" />
     <NestedTypes>
       <Delegate Name="WebCrawlerLibrary.SpecializedWebCrawlerHelper.PagesDownloader.ProcessingUrlEventHandler" Collapsed="true">
         <TypeIdentifier>
@@ -79,22 +79,22 @@
       <FileName>SpecializedWebCrawlerHelper\PagesDownloader.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="WebCrawlerLibrary.SpecializedWebCrawlerHelper.SinglePageDownload" Collapsed="true">
-    <Position X="13.5" Y="1" Width="1.5" />
+  <Class Name="WebCrawlerLibrary.SpecializedWebCrawlerHelper.SinglePageDownload">
+    <Position X="12" Y="1" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAABAAAAACAAAAAAAAAAAAAAAACAAAAA=</HashCode>
       <FileName>SpecializedWebCrawlerHelper\SinglePageDownload.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="WebCrawlerLibrary.SpecializedWebCrawlerHelper.SinglePageSave" Collapsed="true">
-    <Position X="10" Y="2" Width="1.5" />
+  <Class Name="WebCrawlerLibrary.SpecializedWebCrawlerHelper.SinglePageSave">
+    <Position X="10" Y="1" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAIAAAAAAAAAAAAAAAACAAAAACAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>SpecializedWebCrawlerHelper\SinglePageSave.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="WebCrawlerLibrary.SpecializedWebCrawlerHelper.SpecializedCrawlerSettings" Collapsed="true">
-    <Position X="11.75" Y="2" Width="1.5" />
+    <Position X="9.75" Y="4.5" Width="3" />
     <TypeIdentifier>
       <HashCode>QkAAQAIQAAAIAEAAAAACCgIAAAAAAAQAAAAAAABACAA=</HashCode>
       <FileName>SpecializedWebCrawlerHelper\SpecializedCrawlerSettings.cs</FileName>
