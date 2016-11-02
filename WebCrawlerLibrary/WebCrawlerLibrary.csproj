@@ -99,8 +99,14 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SpecializedWebCrawler.cs" />
     <Compile Include="SpecializedWebCrawlerHelper\CrawlerOptions.cs" />
+    <Compile Include="SpecializedWebCrawlerHelper\DatabaseSaver.cs" />
     <Compile Include="SpecializedWebCrawlerHelper\DownloadedPageInfo.cs" />
     <Compile Include="SpecializedWebCrawlerHelper\LinkInfo.cs" />
+    <Compile Include="SpecializedWebCrawlerHelper\Models\CrawlerContext.cs" />
+    <Compile Include="SpecializedWebCrawlerHelper\Models\Domain.cs" />
+    <Compile Include="SpecializedWebCrawlerHelper\Models\Page.cs" />
+    <Compile Include="SpecializedWebCrawlerHelper\Models\Subdomain.cs" />
+    <Compile Include="SpecializedWebCrawlerHelper\Models\Url.cs" />
     <Compile Include="SpecializedWebCrawlerHelper\PagesDownloader.cs" />
     <Compile Include="SpecializedWebCrawlerHelper\SinglePageDownload.cs" />
     <Compile Include="SpecializedWebCrawlerHelper\SinglePageSave.cs" />

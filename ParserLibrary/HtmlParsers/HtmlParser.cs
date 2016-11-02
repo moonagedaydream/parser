@@ -1,13 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
 
 namespace ParserLibrary.HtmlParsers {
     public abstract class HtmlParser : Parser {
 
-        public IList<string> Links;
+        public List<string> Links;
 
         public Encoding Encoding;
 
@@ -41,6 +42,41 @@ namespace ParserLibrary.HtmlParsers {
                 }
             }
         }
+
+        public List<Uri> GetLinks(string globalUri) {
+            List<Uri> result = new List<Uri>();
+            Uri uri;
+
+            foreach (string link in Links) {
+
+                string editedLink = link;
+
+                if (editedLink.StartsWith("#")) {
+                    continue;
+                }
+
+                if (!editedLink.StartsWith("http") && editedLink.Contains("http"))
+                {
+                    editedLink = editedLink.Substring(editedLink.IndexOf("http", System.StringComparison.Ordinal));
+                }
+
+                editedLink = Uri.TryCreate(editedLink, UriKind.Relative, out uri) ? 
+                    new Uri(new Uri(globalUri), uri.ToString()).ToString() : 
+                    Uri.TryCreate(editedLink, UriKind.Absolute, out uri) ? 
+                    uri.ToString() : null;
+
+                if (!string.IsNullOrEmpty(editedLink)) {
+                    editedLink = editedLink.Replace("/?", "?");
+
+                    if (!editedLink.StartsWith("http")) {
+                        continue;
+                    }
+
+                    result.Add(new Uri(editedLink));
+                }
+            }
+            return result.Distinct().ToList();
+        } 
 
         protected void GetLinksUsingRegex(string urlMatch = null) {
 

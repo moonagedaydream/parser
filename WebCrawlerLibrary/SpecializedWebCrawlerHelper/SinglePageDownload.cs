@@ -62,6 +62,8 @@ namespace WebCrawlerLibrary.SpecializedWebCrawlerHelper
         {
           var response = (HttpWebResponse)webException.Response;
 
+          DatabaseSaver.UpdateNonWorkingUrl(absoluteUri, (int)response.StatusCode);
+
           if (response.StatusCode == HttpStatusCode.NotFound ||
             response.StatusCode == HttpStatusCode.InternalServerError)
           {

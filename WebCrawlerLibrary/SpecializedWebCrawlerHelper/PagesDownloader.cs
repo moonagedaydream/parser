@@ -1,9 +1,11 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.ComponentModel;
-using System.Diagnostics;
+using System.Linq;
 using System.Text;
 using log4net;
 using log4net.Config;
+using ParserLibrary.HtmlParsers;
 
 namespace WebCrawlerLibrary.SpecializedWebCrawlerHelper
 {
@@ -79,32 +81,35 @@ namespace WebCrawlerLibrary.SpecializedWebCrawlerHelper
 
           string textContent = SinglePageDownload.DownloadHtml(uriInfo.Uri, out encoding, settings.Options);
 
-          //TODO:: parser parse:)
-          //Parser parser = new Parser(
-          //  settings,
-          //  uriInfo,
-          //  textContent);
-
-          //List<LinkInfo> links =
-          //  parser.Links();
-
           var storer = new SinglePageSave(settings);
 
-          storer.StoreHtml(textContent, encoding, uriInfo);
+          var storedPage = storer.StoreHtml(textContent, encoding, uriInfo);
+
+          HtmlParser parser = new AngleSharpParser();
+
+          parser.Parse(storedPage.LocalFilePath.FullName);
+
+          DatabaseSaver dbSaver = new DatabaseSaver(settings.Options.DownloadUri.ToString(), parser);
+          dbSaver.ProcessPage(uriInfo.Uri);
+
+          List<LinkInfo> links = parser.GetLinks(uriInfo.Uri.ToString())
+              .Select(l => new LinkInfo(settings.Options, l)).ToList();
+
+          foreach (LinkInfo link in links) {
+
+              if (!dbSaver.IsExternal(link.Uri)) {
+                  var downloadedPageInfo =
+                      new DownloadedPageInfo(
+                          link,
+                          uriInfo.LocalFolderPath);
+
+                  ProcessUrl(downloadedPageInfo, depth + 1);
+              }
+          }
+            
 
           // Add before parsing childs.
           settings.AddDownloadedResourceInfo(uriInfo);
-
-          //foreach (LinkInfo link in links)
-          //{
-          //  var downloadedPageInfo =
-          //    new DownloadedPageInfo(
-          //      link,
-          //      uriInfo.LocalFolderPath,
-          //      uriInfo.LocalBaseFolderPath);
-
-          //  ProcessUrl(downloadedPageInfo, depth + 1);
-          //}
 
           // Persist after completely parsed childs.
           settings.PersistDownloadedResourceInfo(uriInfo);
