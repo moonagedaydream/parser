@@ -14,6 +14,9 @@ namespace WebCrawlerRun
   {
     static void Main(string[] args)
     {
+
+      System.Diagnostics.Stopwatch watch = System.Diagnostics.Stopwatch.StartNew();
+
       var cancellationTokenSource = new CancellationTokenSource();
       try
       {
@@ -36,7 +39,22 @@ namespace WebCrawlerRun
       catch (Exception e)
       {
         Console.WriteLine(e);
+      } 
+      finally
+      {
+        watch.Stop();
       }
+
+      try {
+          StatisticsInfo statistics = new StatisticsInfo(
+              watch.ElapsedMilliseconds, 
+              new Uri(@"http://spbu.ru/").Host);
+          statistics.Print();
+
+      } catch (Exception e) {
+          Console.WriteLine(e);
+      }
+
       Console.WriteLine("Press any key to exit.");
       Console.ReadLine();
     }

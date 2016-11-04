@@ -1,12 +1,14 @@
 ﻿using System;
 using System.Data.Entity;
 using System.Linq;
+using log4net;
 using ParserLibrary.HtmlParsers;
 using WebCrawlerLibrary.SpecializedWebCrawlerHelper.Models;
 
 namespace WebCrawlerLibrary.SpecializedWebCrawlerHelper {
     class DatabaseSaver {
 
+        private static readonly ILog log = LogManager.GetLogger("WebCrawler");
         private readonly string mainUrl;
         private readonly CrawlerContext context;
         private readonly HtmlParser parser;
@@ -28,24 +30,40 @@ namespace WebCrawlerLibrary.SpecializedWebCrawlerHelper {
         }
 
         private Domain ProcessDomain(string domainName) {
+
+            log.InfoFormat("Processing domain with name '{0}'.", domainName);
+
             Domain domain = null;
             domain = context.Domains.FirstOrDefault(d => d.Name.Equals(domainName));
             if (domain == null) {
+
+                log.InfoFormat("Saving domain with name '{0}' to database.", domainName);
+
                 domain = new Domain { Name = domainName };
                 context.Domains.Add(domain);
                 context.SaveChanges();
-                }
+            } else {
+                log.InfoFormat("Domain with name '{0}' is already exist.", domainName);
+            }
             return domain;
         }
 
         private Subdomain ProcessSubdomain(string subdomainName) {
+
+            log.InfoFormat("Processing internal subdomain with name '{0}'.", subdomainName);
+
             Subdomain subdomain = null;
             if (!string.IsNullOrEmpty(subdomainName)) {
                 subdomain = context.Subdomains.FirstOrDefault(s => s.Name.Equals(subdomainName));
                 if (subdomain == null) {
+
+                    log.InfoFormat("Saving internal subdomain with name '{0}' to database.", subdomainName);
+
                     subdomain = new Subdomain { Name = subdomainName };
                     context.Subdomains.Add(subdomain);
                     context.SaveChanges();
+                } else {
+                    log.InfoFormat("Internal subdomain with name '{0}' is already exist.", subdomainName);
                 }
             }
             return subdomain;
@@ -53,12 +71,20 @@ namespace WebCrawlerLibrary.SpecializedWebCrawlerHelper {
 
         private Url ProcessLink(Uri link) {
 
+            log.InfoFormat("Saving information about URI '{0}' to database.", link);
+
             string domainName = GetDomainName(link);
             bool external = IsExternal(link);
             string subdomainName = link.Host.Replace(domainName, "").TrimEnd('.');
 
-            Subdomain subdomain = ProcessSubdomain(subdomainName);
-            Domain domain = ProcessDomain(domainName);
+            Subdomain subdomain = null;
+            if (!external && !string.IsNullOrWhiteSpace(subdomainName)) {
+                subdomain = ProcessSubdomain(subdomainName);
+            }
+            Domain domain = null;
+            if (!external) {
+                domain = ProcessDomain(domainName);
+            }
 
             Url url = new Url {
                 ExternalUrl = external,
@@ -70,10 +96,16 @@ namespace WebCrawlerLibrary.SpecializedWebCrawlerHelper {
             };
 
             if (context.Urls.FirstOrDefault(x => x.HashCode == url.HashCode) != null) {
+
+                log.InfoFormat("URI '{0}' is already exist.", link);
+
                 url = context.Urls.First(x => x.HashCode == url.HashCode);
                 url.Pages.Add(page);
                 context.Entry(url).State = EntityState.Modified;
             } else {
+
+                log.InfoFormat("Saving information about URI '{0}' to database.", link);
+
                 url.Pages.Add(page);
                 context.Urls.Add(url);            
             }
@@ -88,6 +120,9 @@ namespace WebCrawlerLibrary.SpecializedWebCrawlerHelper {
         }
 
         public void ProcessPage(Uri startingUrl) {
+
+            log.InfoFormat("Saving page with URI '{0}' to database.", startingUrl);
+
             AddPage();
             if (!context.Urls.Any()) {
                 Url url = ProcessLink(startingUrl);
@@ -104,6 +139,9 @@ namespace WebCrawlerLibrary.SpecializedWebCrawlerHelper {
         }
 
         public static void UpdateNonWorkingUrl(Uri uri, int errorCode) {
+
+            log.InfoFormat("Saving info about non working URI '{0}' to database. ErrorCode: '{1}'", uri, errorCode);
+
             CrawlerContext cnt = new CrawlerContext();
             string h = uri.GetHashCode().ToString("X8");
             Url url = cnt.Urls.First(u => u.HashCode == h);

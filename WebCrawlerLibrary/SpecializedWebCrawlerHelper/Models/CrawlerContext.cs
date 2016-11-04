@@ -11,5 +11,6 @@ namespace WebCrawlerLibrary.SpecializedWebCrawlerHelper.Models {
         public virtual DbSet<Domain> Domains { get; set; }
         public virtual DbSet<Subdomain> Subdomains { get; set; }
         public virtual DbSet<Url> Urls { get; set; }
+        public virtual DbSet<Time> Times { get; set; }
     }
 }

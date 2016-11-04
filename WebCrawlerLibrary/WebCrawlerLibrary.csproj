@@ -106,11 +106,13 @@
     <Compile Include="SpecializedWebCrawlerHelper\Models\Domain.cs" />
     <Compile Include="SpecializedWebCrawlerHelper\Models\Page.cs" />
     <Compile Include="SpecializedWebCrawlerHelper\Models\Subdomain.cs" />
+    <Compile Include="SpecializedWebCrawlerHelper\Models\Time.cs" />
     <Compile Include="SpecializedWebCrawlerHelper\Models\Url.cs" />
     <Compile Include="SpecializedWebCrawlerHelper\PagesDownloader.cs" />
     <Compile Include="SpecializedWebCrawlerHelper\SinglePageDownload.cs" />
     <Compile Include="SpecializedWebCrawlerHelper\SinglePageSave.cs" />
     <Compile Include="SpecializedWebCrawlerHelper\SpecializedCrawlerSettings.cs" />
+    <Compile Include="SpecializedWebCrawlerHelper\StatisticsInfo.cs" />
     <Compile Include="WebCrawler.cs" />
   </ItemGroup>
   <ItemGroup>

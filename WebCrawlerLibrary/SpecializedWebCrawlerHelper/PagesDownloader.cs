@@ -95,6 +95,9 @@ namespace WebCrawlerLibrary.SpecializedWebCrawlerHelper
           List<LinkInfo> links = parser.GetLinks(uriInfo.Uri.ToString())
               .Select(l => new LinkInfo(settings.Options, l)).ToList();
 
+          // Add before parsing childs.
+          settings.AddDownloadedResourceInfo(uriInfo);
+
           foreach (LinkInfo link in links) {
 
               if (!dbSaver.IsExternal(link.Uri)) {
@@ -106,10 +109,6 @@ namespace WebCrawlerLibrary.SpecializedWebCrawlerHelper
                   ProcessUrl(downloadedPageInfo, depth + 1);
               }
           }
-            
-
-          // Add before parsing childs.
-          settings.AddDownloadedResourceInfo(uriInfo);
 
           // Persist after completely parsed childs.
           settings.PersistDownloadedResourceInfo(uriInfo);
