@@ -14,17 +14,18 @@ namespace WebCrawlerLibrary.SpecializedWebCrawlerHelper {
         private readonly HtmlParser parser;
         private Page page;
 
-        private void AddPage() {
+        private void AddPage(Url link) {
             page = new Page {
                 Content = parser.Text,
-                Size = Convert.ToInt32(parser.Size / 1024)
+                Size = Convert.ToInt32(parser.Size / 1024),
+                MainUrl = link
             };
 
             context.Pages.Add(page);
             context.SaveChanges();
         }
 
-        private static string GetDomainName(Uri link) {
+        public static string GetDomainName(Uri link) {
             string[] hostParts = link.Host.Split('.');
             return String.Join(".", hostParts.Skip(Math.Max(0, hostParts.Length - 2)).Take(2));
         }
@@ -59,7 +60,7 @@ namespace WebCrawlerLibrary.SpecializedWebCrawlerHelper {
 
                     log.InfoFormat("Saving internal subdomain with name '{0}' to database.", subdomainName);
 
-                    subdomain = new Subdomain { Name = subdomainName };
+                    subdomain = new Subdomain { Name = subdomainName, Domain = page.MainUrl.BaseDomain};
                     context.Subdomains.Add(subdomain);
                     context.SaveChanges();
                 } else {
@@ -69,10 +70,7 @@ namespace WebCrawlerLibrary.SpecializedWebCrawlerHelper {
             return subdomain;
         }
 
-        private Url ProcessLink(Uri link) {
-
-            log.InfoFormat("Saving information about URI '{0}' to database.", link);
-
+        private Url CreateUrl(Uri link) {
             string domainName = GetDomainName(link);
             bool external = IsExternal(link);
             string subdomainName = link.Host.Replace(domainName, "").TrimEnd('.');
@@ -86,14 +84,22 @@ namespace WebCrawlerLibrary.SpecializedWebCrawlerHelper {
                 domain = ProcessDomain(domainName);
             }
 
-            Url url = new Url {
+            return new Url {
                 ExternalUrl = external,
                 Text = link.ToString(),
                 Working = true,
                 Subdomain = subdomain,
                 Domain = domain,
+                BaseDomain = page == null ? domain : page.MainUrl.Domain,
                 HashCode = link.GetHashCode().ToString("X8")
             };
+        }
+
+        private Url ProcessLink(Uri link) {
+
+            log.InfoFormat("Saving information about URI '{0}' to database.", link);
+
+            Url url = CreateUrl(link);
 
             if (context.Urls.FirstOrDefault(x => x.HashCode == url.HashCode) != null) {
 
@@ -123,7 +129,13 @@ namespace WebCrawlerLibrary.SpecializedWebCrawlerHelper {
 
             log.InfoFormat("Saving page with URI '{0}' to database.", startingUrl);
 
-            AddPage();
+            Url selfUrl = CreateUrl(startingUrl);
+            if (context.Urls.FirstOrDefault(x => x.HashCode == selfUrl.HashCode) != null) {
+                selfUrl = context.Urls.First(x => x.HashCode == selfUrl.HashCode);
+            }
+
+            AddPage(selfUrl);
+
             if (!context.Urls.Any()) {
                 Url url = ProcessLink(startingUrl);
                 page.Urls.Add(url);

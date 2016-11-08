@@ -16,7 +16,7 @@ namespace WebCrawlerRun
     {
 
       System.Diagnostics.Stopwatch watch = System.Diagnostics.Stopwatch.StartNew();
-
+      
       var cancellationTokenSource = new CancellationTokenSource();
       try
       {
@@ -53,7 +53,7 @@ namespace WebCrawlerRun
       try {
           StatisticsInfo statistics = new StatisticsInfo(
               watch.ElapsedMilliseconds, 
-              new Uri(@"http://spbu.ru/").Host);
+              new Uri(@"http://spbu.ru/"));
           statistics.Print();
 
       } catch (Exception e) {

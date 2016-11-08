@@ -21,6 +21,7 @@ namespace WebCrawlerLibrary.SpecializedWebCrawlerHelper.Models {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Page> Pages { get; set; }
         public virtual Domain Domain { get; set; }
+        public virtual Domain BaseDomain { get; set; }
         public virtual Subdomain Subdomain { get; set; }
     }
 }

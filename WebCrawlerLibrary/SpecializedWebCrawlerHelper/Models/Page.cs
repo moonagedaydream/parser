@@ -13,5 +13,6 @@ namespace WebCrawlerLibrary.SpecializedWebCrawlerHelper.Models {
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Url> Urls { get; set; }
+        public virtual Url MainUrl { get; set; }
     }
 }

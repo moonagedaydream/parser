@@ -26,7 +26,7 @@ namespace WebCrawlerTest
             System.Diagnostics.Stopwatch watch = System.Diagnostics.Stopwatch.StartNew();
             StatisticsInfo statistics = new StatisticsInfo(
               watch.ElapsedMilliseconds,
-              new Uri(@"http://0va.ru/").Host);
+              new Uri(@"http://0va.ru/"));
             countUrls = statistics.NumberOfUrls;
             Assert.AreEqual(4, countUrls);
 
@@ -44,7 +44,7 @@ namespace WebCrawlerTest
             System.Diagnostics.Stopwatch watch = System.Diagnostics.Stopwatch.StartNew();
             StatisticsInfo statistics = new StatisticsInfo(
               watch.ElapsedMilliseconds,
-              new Uri(@"http://0va.ru/").Host);
+              new Uri(@"http://0va.ru/"));
             countUrls = statistics.NumberOfExternalLinks;
             Assert.AreEqual(3, countUrls);
 
@@ -86,7 +86,7 @@ namespace WebCrawlerTest
             System.Diagnostics.Stopwatch watch = System.Diagnostics.Stopwatch.StartNew();
             StatisticsInfo statistics = new StatisticsInfo(
               watch.ElapsedMilliseconds,
-              new Uri(@"http://0va.ru/").Host);
+              new Uri(@"http://0va.ru/"));
             countSubdomains = statistics.NumberOfInternalSubdomains;
             Assert.AreEqual(0, countSubdomains);
 
@@ -102,7 +102,7 @@ namespace WebCrawlerTest
             System.Diagnostics.Stopwatch watch = System.Diagnostics.Stopwatch.StartNew();
             StatisticsInfo statistics = new StatisticsInfo(
               watch.ElapsedMilliseconds,
-              new Uri(@"http://0va.ru/").Host);
+              new Uri(@"http://0va.ru/"));
             countErrorUrls = statistics.NumberOfBrokenUrls;
             Assert.AreEqual(0, countErrorUrls);
 
@@ -119,7 +119,7 @@ namespace WebCrawlerTest
             System.Diagnostics.Stopwatch watch = System.Diagnostics.Stopwatch.StartNew();
             StatisticsInfo statistics = new StatisticsInfo(
               watch.ElapsedMilliseconds,
-              new Uri(@"http://0va.ru/").Host);
+              new Uri(@"http://0va.ru/"));
             countPages = statistics.NumberOfPages;
             Assert.AreEqual(1, countPages);
 

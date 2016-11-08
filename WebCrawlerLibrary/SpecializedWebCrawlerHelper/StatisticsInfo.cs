@@ -24,14 +24,23 @@ namespace WebCrawlerLibrary.SpecializedWebCrawlerHelper {
         private void GetStatistics(long? elapsedMilliseconds = null, string domainName = null) {
 
             log.InfoFormat("Getting statistics.");
-
-            numberOfPages = context.Pages.Count();
-            numberOfUrls = context.Urls.Count();
-            totalSizeofPages = context.Pages.Sum(p => p.Size);
-            numberOfBrokenUrls = context.Urls.Count(u => !u.Working);
-            numberOfExternalLinks = context.Urls.Count(u => u.ExternalUrl);
-            internalSubdomains = context.Subdomains.ToList();
-            numberOfInternalSubdomains = internalSubdomains.Count();
+            if (!string.IsNullOrEmpty(domainName)) {
+                numberOfPages = context.Pages.Count(p => p.MainUrl.Domain.Name.Equals(domainName));
+                numberOfUrls = context.Urls.Count(u => u.BaseDomain.Name.Equals(domainName));
+                totalSizeofPages = context.Pages.Where(p => p.MainUrl.Domain.Name.Equals(domainName)).Sum(p => (long)p.Size);
+                numberOfBrokenUrls = context.Urls.Where(u => u.BaseDomain.Name.Equals(domainName)).Count(u => !u.Working);
+                numberOfExternalLinks = context.Urls.Where(u => u.BaseDomain.Name.Equals(domainName)).Count(u => u.ExternalUrl);
+                internalSubdomains = context.Subdomains.Where(s => s.Domain.Name.Equals(domainName)).ToList();
+                numberOfInternalSubdomains = internalSubdomains.Count(s => s.Domain.Name.Equals(domainName));
+            } else {
+                numberOfPages = context.Pages.Count();
+                numberOfUrls = context.Urls.Count();
+                totalSizeofPages = context.Pages.Sum(p => (long)p.Size);
+                numberOfBrokenUrls = context.Urls.Count(u => !u.Working);
+                numberOfExternalLinks = context.Urls.Count(u => u.ExternalUrl);
+                internalSubdomains = context.Subdomains.ToList();
+                numberOfInternalSubdomains = internalSubdomains.Count();
+            }
             if (elapsedMilliseconds != null && !string.IsNullOrEmpty(domainName)) {
                 Time time = context.Times.FirstOrDefault(t => t.Domain.Name.Equals(domainName));
                 long m = 0;
@@ -102,9 +111,9 @@ namespace WebCrawlerLibrary.SpecializedWebCrawlerHelper {
             GetStatistics();
         }
 
-        public StatisticsInfo(long elapsedMilliseconds, string host) {
+        public StatisticsInfo(long? elapsedMilliseconds = null, Uri url = null) {
             context = new CrawlerContext();
-            GetStatistics(elapsedMilliseconds, host);
+            GetStatistics(elapsedMilliseconds, url == null ? null : DatabaseSaver.GetDomainName(url));
         }
 
         public void Print() {
