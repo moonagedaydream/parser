@@ -33,12 +33,12 @@ namespace WebCrawlerLibrary.SpecializedWebCrawlerHelper
 
       try
       {
-        var request = (HttpWebRequest)WebRequest.Create(absoluteUri);
+        var request = (HttpWebRequest) WebRequest.Create(absoluteUri);
 
         var cachePolicy = new RequestCachePolicy(RequestCacheLevel.BypassCache);
         request.CachePolicy = cachePolicy;
 
-        using (var response = (HttpWebResponse)request.GetResponse())
+        using (var response = (HttpWebResponse) request.GetResponse())
         using (var stream = response.GetResponseStream())
         using (var memoryStream = new MemoryStream())
         {
@@ -60,12 +60,12 @@ namespace WebCrawlerLibrary.SpecializedWebCrawlerHelper
       {
         if (webException.Status == WebExceptionStatus.ProtocolError)
         {
-          var response = (HttpWebResponse)webException.Response;
+          var response = (HttpWebResponse) webException.Response;
 
-          DatabaseSaver.UpdateNonWorkingUrl(absoluteUri, (int)response.StatusCode);
+          DatabaseSaver.UpdateNonWorkingUrl(absoluteUri, (int) response.StatusCode);
 
           if (response.StatusCode == HttpStatusCode.NotFound ||
-            response.StatusCode == HttpStatusCode.InternalServerError)
+              response.StatusCode == HttpStatusCode.InternalServerError)
           {
             log.Error(webException);
 
@@ -73,13 +73,20 @@ namespace WebCrawlerLibrary.SpecializedWebCrawlerHelper
           }
           else
           {
-            throw;
+            log.Error(webException);
+            return null;
           }
         }
         else
         {
-          throw;
+          log.Error(webException);
+          return null;
         }
+      }
+      catch (Exception exception)
+      {
+        log.Error(exception);
+        return null;
       }
       return binaryContent;
     }
@@ -96,6 +103,13 @@ namespace WebCrawlerLibrary.SpecializedWebCrawlerHelper
     {
       byte[] binaryContent = DownloadBinary(absoluteUri);
 
+      if (binaryContent == null)
+      {
+        log.Error("Exception during reading binary content from html page.");
+        encoding = Encoding.Default;
+        return String.Empty;
+      }
+
       encoding = HtmlParser.GetEncoding(binaryContent);
 
       log.InfoFormat("Detected encoding '{0}' for HTML document from URL '{1}'.",
@@ -103,7 +117,7 @@ namespace WebCrawlerLibrary.SpecializedWebCrawlerHelper
         absoluteUri);
 
       string textContent = null;
-      if (binaryContent != null && binaryContent.Length > 0)
+      if (binaryContent.Length > 0)
       {
         textContent = encoding.GetString(binaryContent);
       }

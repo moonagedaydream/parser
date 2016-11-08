@@ -29,7 +29,7 @@ namespace WebCrawlerLibrary
 
       var crawler = new PagesDownloader(options);
 
-      crawler.Process();
+      crawler.ProcessAsync();
     }
 
       public override void Crawl(CancellationTokenSource cancellationTokenSource, string startUri)

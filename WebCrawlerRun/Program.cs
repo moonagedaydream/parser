@@ -34,7 +34,12 @@ namespace WebCrawlerRun
         );
 
         WebCrawler crawler = new SpecializedWebCrawler();
-        crawler.Crawl(@"http://spbu.ru/");
+        Task.Factory.StartNew(() =>
+        { crawler.Crawl(@"http://spbu.ru/"); }
+          , cancellationTokenSource.Token);
+        //Task.Factory.StartNew(() =>
+        //{ crawler.Crawl(@"http://spbu.ru/"); }
+        //  , cancellationTokenSource.Token);
       }
       catch (Exception e)
       {
