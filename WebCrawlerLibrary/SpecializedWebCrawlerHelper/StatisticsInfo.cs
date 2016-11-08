@@ -131,5 +131,37 @@ namespace WebCrawlerLibrary.SpecializedWebCrawlerHelper {
             }
             Console.WriteLine("=====================================");
         }
+
+        public void PrintToFile(string startUri)
+        {
+            string fileName = @"C:\temp\" + startUri + @"Statistics.txt";
+            using (System.IO.StreamWriter file =
+                new System.IO.StreamWriter(fileName))
+            {
+                file.WriteLine("=====================================");
+                file.WriteLine("STATISTICS");
+                file.WriteLine("=====================================");
+                file.WriteLine("Total Number Of Pages: {0}.", numberOfPages);
+                file.WriteLine("Total Size Of Pages: {0} bytes.", totalSizeofPages);
+                file.WriteLine("Total Number Of Urls: {0}.", numberOfUrls);
+                file.WriteLine("Number Of Broken Urls: {0}.", numberOfBrokenUrls);
+                file.WriteLine("Number Of External Links: {0}.", numberOfExternalLinks);
+                file.WriteLine("Number Of Internal Subdomains: {0}.", numberOfInternalSubdomains);
+                file.Write("Internal Subdomains: ");
+                InternalSubdomains.ForEach(s => file.Write(" {0},", s.Name));
+                file.WriteLine();
+                if (totalElapsedMilliseconds != 0)
+                {
+                    TimeSpan t = TimeSpan.FromMilliseconds(totalElapsedMilliseconds);
+                    string answer = string.Format("{0:D2}h:{1:D2}m:{2:D2}s:{3:D3}ms",
+                                            t.Hours,
+                                            t.Minutes,
+                                            t.Seconds,
+                                            t.Milliseconds);
+                    file.WriteLine("Total Elapsed time: {0}.", answer);
+                }
+                file.WriteLine("=====================================");
+            }
+        }
     }
 }

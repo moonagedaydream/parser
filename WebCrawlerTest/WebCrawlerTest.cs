@@ -125,6 +125,20 @@ namespace WebCrawlerTest
 
         }
 
+        [Test]
+        public void timeTestUri()
+        {
+
+            Stopwatch stopwatch = new Stopwatch();
+            stopwatch.Start();
+            WebCrawler crawler = new SpecializedWebCrawler();
+            crawler.Crawl(@"http://0va.ru/");
+
+            stopwatch.Stop();
+
+            Assert.Less(stopwatch.Elapsed, TimeSpan.FromSeconds(60));
+        }
+
         /* [Test]
          public void timeSpbu()
          {
