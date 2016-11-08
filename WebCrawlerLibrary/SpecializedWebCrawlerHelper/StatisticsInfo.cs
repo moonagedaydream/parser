@@ -27,7 +27,7 @@ namespace WebCrawlerLibrary.SpecializedWebCrawlerHelper {
             if (!string.IsNullOrEmpty(domainName)) {
                 numberOfPages = context.Pages.Count(p => p.MainUrl.Domain.Name.Equals(domainName));
                 numberOfUrls = context.Urls.Count(u => u.BaseDomain.Name.Equals(domainName));
-                totalSizeofPages = context.Pages.Where(p => p.MainUrl.Domain.Name.Equals(domainName)).Sum(p => p.Size);
+                totalSizeofPages = context.Pages.Where(p => p.MainUrl.Domain.Name.Equals(domainName)).Sum(p => (long?)p.Size) ?? 0;
                 numberOfBrokenUrls = context.Urls.Where(u => u.BaseDomain.Name.Equals(domainName)).Count(u => !u.Working);
                 numberOfExternalLinks = context.Urls.Where(u => u.BaseDomain.Name.Equals(domainName)).Count(u => u.ExternalUrl);
                 internalSubdomains = context.Subdomains.Where(s => s.Domain.Name.Equals(domainName)).ToList();
@@ -35,7 +35,7 @@ namespace WebCrawlerLibrary.SpecializedWebCrawlerHelper {
             } else {
                 numberOfPages = context.Pages.Count();
                 numberOfUrls = context.Urls.Count();
-                totalSizeofPages = context.Pages.Sum(p => p.Size);
+                totalSizeofPages = context.Pages.Sum(p => (long?)p.Size) ?? 0;
                 numberOfBrokenUrls = context.Urls.Count(u => !u.Working);
                 numberOfExternalLinks = context.Urls.Count(u => u.ExternalUrl);
                 internalSubdomains = context.Subdomains.ToList();
