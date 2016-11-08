@@ -76,7 +76,7 @@ namespace WebCrawlerLibrary.SpecializedWebCrawlerHelper {
             string subdomainName = link.Host.Replace(domainName, "").TrimEnd('.');
 
             Subdomain subdomain = null;
-            if (!external && !string.IsNullOrWhiteSpace(subdomainName)) {
+            if (!external && !string.IsNullOrWhiteSpace(subdomainName) && !subdomainName.Equals("www")) {
                 subdomain = ProcessSubdomain(subdomainName);
             }
             Domain domain = null;
