@@ -11,7 +11,7 @@ namespace WebCrawlerLibrary.SpecializedWebCrawlerHelper.Models {
             Pages = new HashSet<Page>();
         }
 
-        public int Id { get; set; }
+        public int UrlId { get; set; }
         public string Text { get; set; }
         public string HashCode { get; set; }
         public bool Working { get; set; }

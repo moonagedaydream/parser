@@ -167,5 +167,14 @@ namespace WebCrawlerLibrary.SpecializedWebCrawlerHelper {
             string domainName = GetDomainName(link);
             return !domainName.Equals(GetDomainName(new Uri(mainUrl)));
         }
+
+        public bool IsOnSubDomain(Uri link) {
+            string domainName = GetDomainName(link);
+            string subdomainName = link.Host.Replace(domainName, "").TrimEnd('.');
+            if (string.IsNullOrWhiteSpace(subdomainName) || subdomainName.Equals("www")) {
+                return false;
+            }
+            return true;
+        }
     }
 }

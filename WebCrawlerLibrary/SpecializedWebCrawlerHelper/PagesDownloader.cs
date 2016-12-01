@@ -85,7 +85,7 @@ namespace WebCrawlerLibrary.SpecializedWebCrawlerHelper
 
           var storedPage = storer.StoreHtml(textContent, encoding, uriInfo);
 
-          HtmlParser parser = new AngleSharpParser();
+          HtmlParser parser = new HtmlAgilityPackParser();
 
           parser.Parse(storedPage.LocalFilePath.FullName);
 
@@ -100,7 +100,7 @@ namespace WebCrawlerLibrary.SpecializedWebCrawlerHelper
 
           foreach (LinkInfo link in links) {
 
-              if (!dbSaver.IsExternal(link.Uri)) {
+              if (!dbSaver.IsExternal(link.Uri) && !dbSaver.IsOnSubDomain(link.Uri)) {
                   var downloadedPageInfo =
                       new DownloadedPageInfo(
                           link,

@@ -12,5 +12,18 @@ namespace WebCrawlerLibrary.SpecializedWebCrawlerHelper.Models {
         public virtual DbSet<Subdomain> Subdomains { get; set; }
         public virtual DbSet<Url> Urls { get; set; }
         public virtual DbSet<Time> Times { get; set; }
+
+        protected override void OnModelCreating(DbModelBuilder modelBuilder) {
+            modelBuilder.Entity<Page>().
+                HasMany(c => c.Urls).
+                WithMany(p => p.Pages).
+                Map(
+                    m => {
+                        m.MapLeftKey("UrlId");
+                        m.MapRightKey("PageId");
+                        m.ToTable("PagesUrls");
+                    });
+
+        }
     }
 }

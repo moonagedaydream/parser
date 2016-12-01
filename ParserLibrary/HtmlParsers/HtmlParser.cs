@@ -60,19 +60,22 @@ namespace ParserLibrary.HtmlParsers {
                     editedLink = editedLink.Substring(editedLink.IndexOf("http", System.StringComparison.Ordinal));
                 }
 
-                editedLink = Uri.TryCreate(editedLink, UriKind.Relative, out uri) ? 
-                    new Uri(new Uri(globalUri), uri.ToString()).ToString() : 
-                    Uri.TryCreate(editedLink, UriKind.Absolute, out uri) ? 
-                    uri.ToString() : null;
+                try {
+                    editedLink = Uri.TryCreate(editedLink, UriKind.Relative, out uri) ?
+                        new Uri(new Uri(globalUri), uri.ToString()).ToString() :
+                        Uri.TryCreate(editedLink, UriKind.Absolute, out uri) ?
+                            uri.ToString() : null;
 
-                if (!string.IsNullOrEmpty(editedLink)) {
-                    editedLink = editedLink.Replace("/?", "?");
+                    if (!string.IsNullOrEmpty(editedLink)) {
+                        editedLink = editedLink.Replace("/?", "?");
 
-                    if (!editedLink.StartsWith("http")) {
-                        continue;
+                        if (!editedLink.StartsWith("http")) {
+                            continue;
+                        }
+
+                        result.Add(new Uri(editedLink));
                     }
-
-                    result.Add(new Uri(editedLink));
+                } catch (Exception) {
                 }
             }
             return result.Distinct().ToList();

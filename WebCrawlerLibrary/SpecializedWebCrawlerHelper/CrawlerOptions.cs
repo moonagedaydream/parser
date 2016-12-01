@@ -30,7 +30,7 @@ namespace WebCrawlerLibrary.SpecializedWebCrawlerHelper
     /// <summary>
     /// Maximum depth for crawler.
     /// </summary>
-    private int maximumDepth = 5;
+    private int maximumDepth = 100500;
     #endregion
 
     #region C-tor
