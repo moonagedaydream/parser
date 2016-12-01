@@ -9,6 +9,7 @@ using System.Data;
 using WebCrawlerLibrary.SpecializedWebCrawlerHelper;
 using System.Diagnostics;
 using System.Configuration;
+using System.Threading;
 
 namespace WebCrawlerTest
 {
@@ -21,9 +22,11 @@ namespace WebCrawlerTest
 
         {
             Int32 countUrls = 0;
+            System.Diagnostics.Stopwatch watch = System.Diagnostics.Stopwatch.StartNew();
             WebCrawler crawler = new SpecializedWebCrawler();
             crawler.Crawl(@"http://0va.ru/");
-            System.Diagnostics.Stopwatch watch = System.Diagnostics.Stopwatch.StartNew();
+            watch.Stop();
+            Thread.Sleep(15000);
             StatisticsInfo statistics = new StatisticsInfo(
               watch.ElapsedMilliseconds,
               new Uri(@"http://0va.ru/"));
@@ -39,9 +42,11 @@ namespace WebCrawlerTest
 
         {
             Int32 countUrls = 0;
+            System.Diagnostics.Stopwatch watch = System.Diagnostics.Stopwatch.StartNew();
             WebCrawler crawler = new SpecializedWebCrawler();
             crawler.Crawl(@"http://0va.ru/");
-            System.Diagnostics.Stopwatch watch = System.Diagnostics.Stopwatch.StartNew();
+            watch.Stop();
+            Thread.Sleep(15000);
             StatisticsInfo statistics = new StatisticsInfo(
               watch.ElapsedMilliseconds,
               new Uri(@"http://0va.ru/"));
@@ -81,9 +86,11 @@ namespace WebCrawlerTest
 
         {
             int countSubdomains = 0;
+            System.Diagnostics.Stopwatch watch = System.Diagnostics.Stopwatch.StartNew();
             WebCrawler crawler = new SpecializedWebCrawler();
             crawler.Crawl(@"http://0va.ru/");
-            System.Diagnostics.Stopwatch watch = System.Diagnostics.Stopwatch.StartNew();
+            watch.Stop();
+            Thread.Sleep(15000);
             StatisticsInfo statistics = new StatisticsInfo(
               watch.ElapsedMilliseconds,
               new Uri(@"http://0va.ru/"));
@@ -97,9 +104,11 @@ namespace WebCrawlerTest
 
         {
             int countErrorUrls = 0;
+            System.Diagnostics.Stopwatch watch = System.Diagnostics.Stopwatch.StartNew();
             WebCrawler crawler = new SpecializedWebCrawler();
             crawler.Crawl(@"http://0va.ru/");
-            System.Diagnostics.Stopwatch watch = System.Diagnostics.Stopwatch.StartNew();
+            watch.Stop();
+            Thread.Sleep(30000);
             StatisticsInfo statistics = new StatisticsInfo(
               watch.ElapsedMilliseconds,
               new Uri(@"http://0va.ru/"));
@@ -114,9 +123,11 @@ namespace WebCrawlerTest
 
         {
             Int32 countPages = 0;
+            System.Diagnostics.Stopwatch watch = System.Diagnostics.Stopwatch.StartNew();
             WebCrawler crawler = new SpecializedWebCrawler();
             crawler.Crawl(@"http://0va.ru/");
-            System.Diagnostics.Stopwatch watch = System.Diagnostics.Stopwatch.StartNew();
+            watch.Stop();
+            Thread.Sleep(30000);
             StatisticsInfo statistics = new StatisticsInfo(
               watch.ElapsedMilliseconds,
               new Uri(@"http://0va.ru/"));
