@@ -100,7 +100,7 @@ namespace WebCrawlerLibrary.SpecializedWebCrawlerHelper
 
           foreach (LinkInfo link in links) {
 
-              if (!dbSaver.IsExternal(link.Uri) && !dbSaver.IsOnSubDomain(link.Uri)) {
+              if (!dbSaver.IsExternal(link.Uri) /*&& !dbSaver.IsOnSubDomain(link.Uri)*/) {
                   var downloadedPageInfo =
                       new DownloadedPageInfo(
                           link,
