@@ -49,12 +49,13 @@ namespace WebCrawlerRun
       {
         watch.Stop();
       }
-
+      
       try {
           StatisticsInfo statistics = new StatisticsInfo(
               watch.ElapsedMilliseconds, 
               new Uri(@"http://spbu.ru/"));
           statistics.Print();
+          statistics.PrintToFile("spbu");
 
       } catch (Exception e) {
           Console.WriteLine(e);
