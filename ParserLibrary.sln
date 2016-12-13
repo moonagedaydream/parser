@@ -19,6 +19,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IndexLibrary", "LuceneLibra
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LuceneRun", "LuceneRun\LuceneRun.csproj", "{583FD432-F713-45F7-ABBF-FD4F88742959}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WindowsFormsApplication1", "WindowsFormsApplication1\WindowsFormsApplication1.csproj", "{58CB2F35-2F74-4BDB-B728-FB34BD7F99BA}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -57,6 +59,10 @@ Global
 		{583FD432-F713-45F7-ABBF-FD4F88742959}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{583FD432-F713-45F7-ABBF-FD4F88742959}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{583FD432-F713-45F7-ABBF-FD4F88742959}.Release|Any CPU.Build.0 = Release|Any CPU
+		{58CB2F35-2F74-4BDB-B728-FB34BD7F99BA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{58CB2F35-2F74-4BDB-B728-FB34BD7F99BA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{58CB2F35-2F74-4BDB-B728-FB34BD7F99BA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{58CB2F35-2F74-4BDB-B728-FB34BD7F99BA}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
