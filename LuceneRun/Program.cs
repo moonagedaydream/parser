@@ -16,11 +16,16 @@ namespace LuceneRun
         {
 
             LuceneService service = new LuceneService();
-             List<Pages> p = service.GetFiles();
-            service.CreateIndex(p);
+            List<Pages> p = service.GetFiles();
+           // service.CreateIndex(p);
+            System.Diagnostics.Stopwatch watch = System.Diagnostics.Stopwatch.StartNew();
             IEnumerable<Pages> tmp = service.Search("заявление");
-            foreach(Pages i in tmp)
-            Console.WriteLine(i.url);
+            watch.Stop();
+            int k = 0;
+            foreach (Pages i in tmp)
+            { Console.WriteLine(i.url); k++; }
+            Console.WriteLine(watch.ElapsedMilliseconds);
+            Console.WriteLine(k);
         }
     }
 }
