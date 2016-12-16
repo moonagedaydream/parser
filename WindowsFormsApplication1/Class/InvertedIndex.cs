@@ -100,6 +100,30 @@ namespace InvertedIndex
         {
             Index.Clear();
         }
+
+        public void SaveDeltaCompressedToFile(FileStream fs)
+        {
+            try
+            {
+                Index.Keys.ToList()
+                    .ForEach(k =>
+                    {
+                        Console.Write(k);
+
+                        Encoding.UTF8.GetBytes(k.ToString()).ToList().ForEach(b => fs.WriteByte(b));
+
+                        fs.WriteByte(Convert.ToByte(':'));
+
+                        Index[k].SaveDeltaCompressedToFile(fs);
+                    });
+            }
+            catch (Exception ex)
+            {
+
+                Console.WriteLine(ex.Message);
+
+            }
+        }
         //public void Load(string TextReprOfIndex)
         //{
         //    this.Clear();
@@ -150,6 +174,7 @@ namespace InvertedIndex
         //void SaveToFile(string FileName);
 
         void SaveCompressedToFile(FileStream fs);
+        void SaveDeltaCompressedToFile(FileStream fs);
     }
 
     #endregion
@@ -221,6 +246,10 @@ namespace InvertedIndex
         {
 
         }
+        public void SaveDeltaCompressedToFile(FileStream fs)
+        {
+
+        }
 
         public string ToStringWithCompress()
         {
@@ -280,6 +309,41 @@ namespace InvertedIndex
 
             foreach (byte b in bytes) fs.WriteByte(b);
         }
+        public void SaveDeltaCompressedToFile(FileStream fs)
+        {
+
+            using (var stream = new MemoryStream())
+            {
+
+                using (var writer = new InvertedTomato.Compression.Integers.EliasDeltaUnsignedWriter(stream))
+                {
+                    ForwardConversion(TermIndex.Keys.ToList()).ForEach(d => writer.Write(Convert.ToUInt64(d)));
+                    TermIndex.Values.ToList().ForEach(d => writer.Write(Convert.ToUInt64(d)));
+                }
+                byte[] bytes = stream.ToArray();
+                Encoding.UTF8.GetBytes(bytes.Length.ToString()).ToList().ForEach(ch => fs.WriteByte(Convert.ToByte(ch)));
+
+                fs.WriteByte(Convert.ToByte(':'));
+
+                foreach (byte b in bytes) fs.WriteByte(b);
+                /*GammaEliasCoding.BufferEncoder encoder = new GammaEliasCoding.BufferEncoder();
+
+            ForwardConversion(TermIndex.Keys.ToList()).ForEach(d => encoder.Append(d));
+            TermIndex.Values.ToList().ForEach(d => encoder.Append(d));
+
+            byte[] bytes = encoder.GetByteArray();
+
+            Encoding.UTF8.GetBytes(bytes.Length.ToString()).ToList().ForEach(ch => fs.WriteByte(Convert.ToByte(ch)));
+
+            fs.WriteByte(Convert.ToByte(':'));
+
+            foreach (byte b in bytes) fs.WriteByte(b);*/
+
+            }
+        }
+
+
+
 
         //public void SaveToFile(string FileName)
         //{

@@ -339,7 +339,156 @@ namespace InvertedIndex
             return result_set;
         }
 
+       /* private List<int> SearchInDeltaCompressedInvertedIndex(List<string> queryWords)
+        {
+            Dictionary<string, byte[]> term2terminfo = new Dictionary<string, byte[]>();
 
+            int currentIndexOnWordInQuery = 0;
+            string queryWord = queryWords[currentIndexOnWordInQuery];
+
+            #region ReadFromFile
+            using (FileStream fs = new FileStream(openFileDialog.FileName, FileMode.Open, FileAccess.Read))
+            {
+
+
+                List<byte> Term = new List<byte>();
+                string term = "";
+                List<byte> Num = new List<byte>();
+                int num = 0;
+                List<byte> Code = new List<byte>();
+
+                int numBytesToRead = (int)fs.Length;
+                int numBytesRead = 0;
+
+                int nColon = 0;
+                while (numBytesToRead > 0)
+                {
+
+                    byte b = (byte)fs.ReadByte();
+                    numBytesToRead--;
+                    char ch = Convert.ToChar(b);
+
+                    if (nColon == 0)
+                    {
+                        if (ch == ':')
+                        {
+
+                            nColon = 1;
+                            term = Encoding.UTF8.GetString(Term.ToArray());
+                            Term.Clear();
+
+                        }
+                        else
+                        {
+                            Term.Add(b);
+                        }
+                    }
+                    else if (nColon == 1)
+                    {
+                        if (ch == ':')
+                        {
+                            nColon = 2;
+                            string snum = Encoding.UTF8.GetString(Num.ToArray());
+                            if (!int.TryParse(snum, out num))
+                            {
+                                MessageBox.Show("Индекс поврежден");
+                                return null;
+                            }
+                            Num.Clear();
+                        }
+                        else
+                        {
+                            Num.Add(b);
+                        }
+                    }
+                    else
+                    {
+                        Code.Add(b);
+
+                        if (Code.Count == num)
+                        {
+                            nColon = 0;
+
+
+                            if (term == queryWord)
+                            {
+                                term2terminfo[term] = Code.ToArray();
+                                Code.Clear();
+                                currentIndexOnWordInQuery++;
+
+                                if (currentIndexOnWordInQuery < queryWords.Count)
+                                    queryWord = queryWords[currentIndexOnWordInQuery];
+                                else
+                                    break;
+
+
+                            }
+                            else if (String.Compare(term, queryWord) > 0)
+                            {
+                                MessageBox.Show("Слово '" + queryWord + "' отсутствует в индексе. ");
+                                return null;
+                            }
+
+                            Code.Clear();
+                        }
+
+                    }
+                }
+
+
+            }
+            #endregion
+
+
+
+
+            //List<string> lst = new List<string>(); // term2terminfo.Values.ToList()
+            //.Select(s => s.Substring(s.IndexOf(':') + 2)).ToList();
+
+            List<byte[]> lst = term2terminfo.Values.ToList();
+
+            List<int> result_set = new List<int>();
+            using (var stream = new MemoryStream())
+            {
+                using (var reader = new InvertedTomato.Compression.Integers.EliasDeltaUnsignedReader(stream))
+                {ч
+                    Console.WriteLine(reader.Read());
+                    // Output: 1
+                    Console.WriteLine(reader.Read());
+                    // Output: 2
+                    Console.WriteLine(reader.Read());
+                    // Output: 3
+                }
+            }
+            GammaEliasCoding.BufferDecoder decoder;
+            for (int i = 0; i < lst.Count; ++i)
+            {
+                byte[] b = lst[i];
+                decoder = new GammaEliasCoding.BufferDecoder(b);
+
+                List<int> inner_set = new List<int>();
+                foreach (int value in decoder.GetValue())
+                {
+                    inner_set.Add(value);
+                }
+                inner_set = BackConversion(inner_set.Take(inner_set.Count / 2).ToList());
+
+
+                if (i == 0)
+                {
+                    result_set = inner_set;
+                }
+                else
+                {
+                    result_set = result_set.Intersect(inner_set).ToList();
+
+                    if (result_set.Count == 0) return result_set;
+                }
+            }
+
+            return result_set;
+        }
+        */
         public static List<int> BackConversion(List<int> source)
         {
             List<int> dest = new List<int>();

@@ -20,5 +20,6 @@ namespace InvertedIndex
 
         //void SaveToFile(string FileName, IDisplayTextProgress displayProgress);
         void SaveCompressedToFile(FileStream fs);
+        void SaveDeltaCompressedToFile(FileStream fs);
     }
 }

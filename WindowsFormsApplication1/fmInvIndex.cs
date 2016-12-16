@@ -263,6 +263,7 @@ namespace InvertedIndex
                 using (FileStream fs = new FileStream(FileName, FileMode.OpenOrCreate, FileAccess.Write))
                 {
                     InvertedIndex.SaveCompressedToFile(fs);
+                    //InvertedIndex.SaveDeltaCompressedToFile(fs);
                 }                
             }
             catch (Exception ex)
